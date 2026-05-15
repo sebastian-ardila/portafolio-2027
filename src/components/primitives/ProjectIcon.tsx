@@ -59,7 +59,10 @@ export function ProjectIcon({
           alt=""
           width={imgSize}
           height={imgSize}
-          unoptimized={!iconSrc /* only optimize local */}
+          // Favicons are <10 KB. Skip the Next.js image optimization layer
+          // entirely so we don't accumulate stale entries in
+          // .next/cache/images when the source asset is updated.
+          unoptimized
           style={{ width: imgSize, height: imgSize, objectFit: 'contain' }}
         />
       ) : (

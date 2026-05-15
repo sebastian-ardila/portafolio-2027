@@ -8,13 +8,13 @@ import type { Kaizen } from '@/content/schema'
 // image slides in from when the card is hovered/focused.
 type PillarImage = {
   src: string
-  from: 'right' | 'top'
+  from: 'right' | 'top' | 'left' | 'top-right'
 }
 
 const pillarImages: (PillarImage | null)[] = [
   { src: '/images/watch.webp', from: 'right' },
   { src: '/images/costs.webp', from: 'top' },
-  null,
+  { src: '/images/compound.webp', from: 'top-right' },
 ]
 
 // Tailwind class fragments per direction so the off-card initial state
@@ -31,6 +31,18 @@ const fromClasses = {
     initial: '-translate-y-[110%] opacity-0',
     final:
       'group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100',
+  },
+  left: {
+    base: 'top-0 left-0 object-left-top',
+    initial: '-translate-x-[110%] opacity-0',
+    final:
+      'group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100',
+  },
+  'top-right': {
+    base: 'top-0 right-0 object-right-top',
+    initial: 'translate-x-[110%] -translate-y-[110%] opacity-0',
+    final:
+      'group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:translate-y-0 group-focus-within:opacity-100',
   },
 } as const
 
