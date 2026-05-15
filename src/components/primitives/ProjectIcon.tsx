@@ -4,6 +4,8 @@ import { cn } from '@/lib/cn'
 type ProjectIconProps = {
   name: string
   domain?: string
+  /** Local favicon path; takes precedence over Google s2 fallback. */
+  iconSrc?: string
   size?: number
   className?: string
 }
@@ -21,6 +23,7 @@ function initialsFromName(name: string): string {
 export function ProjectIcon({
   name,
   domain,
+  iconSrc,
   size = 48,
   className,
 }: ProjectIconProps) {
@@ -35,6 +38,12 @@ export function ProjectIcon({
     borderRadius: Math.max(10, Math.round(size * 0.28)),
   } as const
 
+  const remoteIcon = domain
+    ? `https://www.google.com/s2/favicons?sz=128&domain=${domain}`
+    : null
+
+  const finalSrc = iconSrc ?? remoteIcon
+
   return (
     <span
       aria-hidden
@@ -44,13 +53,13 @@ export function ProjectIcon({
       )}
       style={wrapperStyle}
     >
-      {domain ? (
+      {finalSrc ? (
         <Image
-          src={`https://www.google.com/s2/favicons?sz=128&domain=${domain}`}
+          src={finalSrc}
           alt=""
           width={imgSize}
           height={imgSize}
-          unoptimized
+          unoptimized={!iconSrc /* only optimize local */}
           style={{ width: imgSize, height: imgSize, objectFit: 'contain' }}
         />
       ) : (

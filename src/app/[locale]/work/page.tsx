@@ -82,7 +82,12 @@ export default async function WorkPage({
 
                   <div className="col-span-12 md:col-span-5">
                     <div className="flex items-start gap-5 mb-5">
-                      <ProjectIcon name={p.name} domain={p.domain} size={56} />
+                      <ProjectIcon
+                        name={p.name}
+                        domain={p.domain}
+                        iconSrc={p.iconSrc}
+                        size={56}
+                      />
                       <div className="flex-1">
                         <h2 className="font-display text-[2.25rem] md:text-[3rem] font-extrabold -tracking-[0.03em] leading-[0.95] text-[var(--color-ink-deep)]">
                           {p.name}

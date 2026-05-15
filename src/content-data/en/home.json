@@ -108,7 +108,8 @@
         "url": "https://clinity.ai",
         "domain": "clinity.ai",
         "year": "2024 — present",
-        "art": "Clinity.ai"
+        "art": "Clinity.ai",
+        "iconSrc": "/images/projects/clinity.webp"
       },
       {
         "number": "02",
@@ -141,7 +142,8 @@
         "url": "https://copairo.com",
         "domain": "copairo.com",
         "year": "2023",
-        "art": "Copairo"
+        "art": "Copairo",
+        "iconSrc": "/images/projects/copairo.webp"
       },
       {
         "number": "05",

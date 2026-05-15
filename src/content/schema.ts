@@ -57,6 +57,8 @@ export const ProjectSchema = z.object({
   year: z.string().optional(),
   art: z.string().optional(),
   repo: z.string().optional(),
+  /** Local favicon path (preferred over Google s2 fallback if present). */
+  iconSrc: z.string().optional(),
 })
 
 export const WorkSchema = z.object({

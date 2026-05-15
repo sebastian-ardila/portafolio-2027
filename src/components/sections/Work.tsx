@@ -19,7 +19,12 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
     <article className="project-card h-full">
       <div className="project-thumb" style={{ background: bg }}>
         <div className="absolute top-4 left-4">
-          <ProjectIcon name={p.name} domain={p.domain} size={52} />
+          <ProjectIcon
+            name={p.name}
+            domain={p.domain}
+            iconSrc={p.iconSrc}
+            size={52}
+          />
         </div>
         <div className="project-thumb-art text-[2rem] md:text-[2.5rem] whitespace-pre-line">
           <span className="leading-[0.95] -tracking-[0.04em]">
