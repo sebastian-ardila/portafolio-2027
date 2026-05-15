@@ -1,0 +1,237 @@
+{
+  "hero": {
+    "eyebrow": "Ingeniero Senior · Director UX",
+    "title": "Ingeniería que compone valor, no que colapsa.",
+    "subtitleTemplate": "{years}+ años construyendo productos que sobreviven al crecimiento. Actualmente en Clinity y RunMyProcess.",
+    "ctaPrimary": { "label": "Agendar llamada", "href": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true" },
+    "ctaSecondary": { "label": "Ver el trabajo", "href": "/work" },
+    "metaLine": "Práctica independiente · {currentYear}"
+  },
+  "about": {
+    "eyebrow": "Sobre mí",
+    "title": "La persona detrás de la ingeniería.",
+    "paragraphs": [
+      "Soy Sebastian Ardila — Ingeniero Senior y Director de UX con {years}+ años construyendo productos que llegan a producción, escalan y sobreviven la primera crisis del fundador.",
+      "Trabajo en la intersección entre arquitectura y diseño. Empecé escribiendo código, fui creciendo liderando equipos, y aprendí en el camino que las mejores decisiones de ingeniería son las que protegen el futuro del producto, no las que parecen ingeniosas hoy.",
+      "Trabajo de forma remota. Acompaño a fundadores, agencias y equipos técnicos que buscan un partner — no un contratista."
+    ],
+    "caption": "Sebastian Ardila"
+  },
+  "kaizen": {
+    "eyebrow": "El Framework Kaizen",
+    "title": "La mejora continua es la arquitectura.",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Observa antes de optimizar.",
+        "description": "Métricas antes que features. Instrumentamos el sistema para que cada decisión después de la semana uno se base en datos, no en opiniones."
+      },
+      {
+        "number": "02",
+        "title": "Reduce el costo del cambio.",
+        "description": "Fronteras modulares, contratos tipados, despliegues en fragmentos. El refactor se vuelve rutina, no un evento trimestral."
+      },
+      {
+        "number": "03",
+        "title": "Compón, no acumules.",
+        "description": "La deuda técnica es un interés que no acordaste pagar. Cada iteración deja el código más barato de extender que la anterior."
+      }
+    ]
+  },
+  "selective": {
+    "eyebrow": "Ingeniería Selectiva",
+    "title": "No trabajo con cualquiera. A propósito.",
+    "headers": {
+      "left": "Para fundadores que quieren",
+      "right": "No para quien busca"
+    },
+    "rows": [
+      {
+        "forYou": "Un partner técnico responsable de los resultados",
+        "notForYou": "Un par de manos para ejecutar tickets de Jira"
+      },
+      {
+        "forYou": "Sistemas que crecen sin reescribirse cada año",
+        "notForYou": "La tarifa más baja por hora en Upwork"
+      },
+      {
+        "forYou": "Honestidad para desafiar una abstracción equivocada",
+        "notForYou": "\"Sí\" a cada feature que pidan"
+      },
+      {
+        "forYou": "Propiedad a largo plazo sobre las decisiones de arquitectura",
+        "notForYou": "Un parche rápido que sale viernes y se rompe lunes"
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Servicios como Soluciones",
+    "title": "Ingeniería, planteada como resultado de negocio.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Arquitecturas de alto tráfico",
+        "description": "Infraestructuras Next.js + AWS diseñadas para absorber 10x de carga sin reescribir. Edge caching, desacoplamiento por colas, observabilidad nativa.",
+        "stack": ["Next.js", "Node", "AWS", "Postgres", "Redis"]
+      },
+      {
+        "number": "02",
+        "title": "Modernización de sistemas legados",
+        "description": "Migraciones por patrón strangler. Tu sistema viejo sigue vivo mientras un reemplazo tipado, testeado y modular crece a su alrededor. Sin reescrituras big-bang.",
+        "stack": ["TypeScript", "React", "Node", "Docker"]
+      },
+      {
+        "number": "03",
+        "title": "Liderazgo técnico fraccional",
+        "description": "Contratación, roadmaps técnicos, cultura de code review, disciplina de on-call. Para fundadores con product-market fit y sin ingeniero senior que ancle al equipo.",
+        "stack": ["Estrategia", "Hiring", "Arquitectura"]
+      },
+      {
+        "number": "04",
+        "title": "Auditorías de arquitectura",
+        "description": "Inmersión profunda de dos semanas: código, infraestructura, plan de hiring, riesgo técnico. El output es un roadmap priorizado que tus inversionistas entenderán.",
+        "stack": ["Auditoría", "Roadmap", "Riesgo"]
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Proyectos Seleccionados",
+    "title": "Donde el framework se pone a prueba.",
+    "description": "Una probada del trabajo — tres productos que he construido o liderado. Cubren salud, low-code empresarial y finanzas. El resto del archivo está a un clic.",
+    "items": [
+      {
+        "number": "01",
+        "name": "Clinity",
+        "role": "Ingeniería & Estrategia",
+        "summary": "Plataforma de salud que combina flujos clínicos con asistencia de IA. Contribuí a la base técnica y a la dirección de producto.",
+        "stack": ["Next.js", "TypeScript", "Full Stack", "Arquitectura"],
+        "url": "https://clinity.ai",
+        "domain": "clinity.ai",
+        "year": "2024 — presente",
+        "art": "Clinity.ai"
+      },
+      {
+        "number": "02",
+        "name": "RunMyProcess (Fluyenta)",
+        "role": "Director UX · Senior Frontend",
+        "summary": "Plataforma low-code empresarial al servicio de equipos Fortune 500. Lideré roadmap UX, coordinación cross-cultural de ingeniería e integración de IA.",
+        "stack": ["React", "TypeScript", "Redux", "Low-Code", "IA"],
+        "url": "https://www.runmyprocess.com/",
+        "domain": "runmyprocess.com",
+        "year": "2022 — presente",
+        "art": "RMP\nFluyenta"
+      },
+      {
+        "number": "03",
+        "name": "VeriTran",
+        "role": "Senior Frontend · Arquitectura",
+        "summary": "Plataforma financiera procesando transacciones en tiempo real sobre WebSockets. Impulsé code-splitting y migración arquitectónica hacia módulos SOLID.",
+        "stack": ["React", "TypeScript", "WebSockets", "Node.js"],
+        "url": "https://veritran.com",
+        "domain": "veritran.com",
+        "year": "2020 — 2022",
+        "art": "VeriTran\nFinancial"
+      },
+      {
+        "number": "04",
+        "name": "Copairo",
+        "role": "Fundador · Full-stack",
+        "summary": "Producto independiente construido de punta a punta: marca, estrategia, ingeniería. Un campo de pruebas para patrones que ahora reutilizo con clientes.",
+        "stack": ["Next.js", "TypeScript", "Marca"],
+        "url": "https://copairo.com",
+        "domain": "copairo.com",
+        "year": "2023",
+        "art": "Copairo"
+      },
+      {
+        "number": "05",
+        "name": "Mudanzas Pereira",
+        "role": "Ingeniería · SEO",
+        "summary": "Negocio local de logística pasando de cero a primera página de Google. Sitio ingenierizado para performance y descubrimiento orgánico desde el día uno.",
+        "stack": ["Next.js", "React", "SEO"],
+        "url": "https://mudanzaspereira.co",
+        "domain": "mudanzaspereira.co",
+        "year": "2024",
+        "art": "Mudanzas\nPereira"
+      },
+      {
+        "number": "06",
+        "name": "Café Los Grisales",
+        "role": "Ingeniería · Marca",
+        "summary": "Sitio para una cafetería local en Pereira. Identidad de marca traducida a una presencia web rápida y centrada en el contenido: menú, historia y contacto. Código abierto.",
+        "stack": ["Next.js", "React", "TypeScript", "Marca"],
+        "url": "https://cafelosgrisales.com",
+        "domain": "cafelosgrisales.com",
+        "year": "2025",
+        "art": "Café\nLos Grisales",
+        "repo": "https://github.com/sebastian-ardila/los-grisales"
+      },
+      {
+        "number": "07",
+        "name": "Café Independencia",
+        "role": "Ingeniería · Diseño UX",
+        "summary": "Sitio de marca de café con cuidado editorial. Tipografía calma, layout responsivo, jerarquía centrada en el contenido.",
+        "stack": ["Next.js", "React", "UX", "Responsive"],
+        "domain": "cafeindependencia.co",
+        "year": "2023",
+        "art": "Café\nIndependencia"
+      },
+      {
+        "number": "08",
+        "name": "Casa de Asterión",
+        "role": "Ingeniería · UX Editorial",
+        "summary": "Sitio editorial para una editorial independiente. Modelo de contenido a medida y arquitectura de información centrada en el contenido.",
+        "stack": ["Next.js", "React", "Contenido"],
+        "url": "https://casadeasterionediciones.com",
+        "domain": "casadeasterionediciones.com",
+        "year": "2024",
+        "art": "Casa de\nAsterión"
+      },
+      {
+        "number": "09",
+        "name": "Pirogramei",
+        "role": "Ingeniería · Accesibilidad",
+        "summary": "Sitio estático para un grupo comunitario de programación. Construido con Astro para cargas instantáneas, desplegado en GitHub Pages, accesibilidad primero.",
+        "stack": ["Astro", "HTML", "CSS", "A11y"],
+        "year": "2023",
+        "art": "Pirogramei"
+      },
+      {
+        "number": "10",
+        "name": "CS Pereira",
+        "role": "Ingeniería · Comunidad",
+        "summary": "Sitio para la comunidad local de Computer Science. Codificado a mano, liviano, enfocado en legibilidad y facilidad de compartir.",
+        "stack": ["HTML", "CSS", "JS"],
+        "year": "2022",
+        "art": "CS\nPereira"
+      },
+      {
+        "number": "11",
+        "name": "Compilador PL/0",
+        "role": "Ingeniería · Compiladores",
+        "summary": "Compilador para el lenguaje PL/0 construido en Python. Lexer, parser y generador de código. Un proyecto de fin de semana por amor al oficio.",
+        "stack": ["Python", "Compiladores", "Lexing", "Parsing"],
+        "year": "2021",
+        "art": "PL/0\nCompiler"
+      }
+    ],
+    "viewAllLabel": "Abrir archivo de proyectos",
+    "viewAllHref": "/work",
+    "archiveTeaser": "proyectos más en e-commerce, editorial, fintech y open source viven en el archivo."
+  },
+  "philosophy": {
+    "eyebrow": "Filosofía",
+    "paragraphs": [
+      "El software es un sistema vivo. Nunca está terminado — se mantiene, se observa, se mejora. Cada codebase carga una tasa de interés oculta; el trabajo del ingeniero es mantenerla baja para que el fundador siga invirtiendo en crecimiento, no en reparaciones.",
+      "No creo en reescrituras heroicas. Creo en mejoras pequeñas y deliberadas que, compuestas durante años, separan a las empresas que escalan de las que se estancan."
+    ],
+    "signature": "— Eso es Kaizen. Ese es el trabajo."
+  },
+  "contact": {
+    "eyebrow": "Hablemos",
+    "title": "Si el problema es interesante, la conversación es gratis.",
+    "subtitle": "30 minutos en Google Meet. Cuéntame qué estás construyendo — yo te diré si soy el partner correcto para esto.",
+    "callLabel": "Agendar llamada de 30 min",
+    "callHref": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true"
+  }
+}

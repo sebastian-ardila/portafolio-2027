@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "framework": "Framework",
+    "services": "Servicios",
+    "work": "Proyectos",
+    "philosophy": "Filosofía",
+    "contact": "Contacto",
+    "bookCall": "Agendar"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "available": "Disponible para proyectos selectos",
+    "based": "Remoto · Trabajando globalmente",
+    "backToTop": "Volver arriba",
+    "contact": "Contacto"
+  },
+  "locale": {
+    "switch": "Cambiar idioma",
+    "en": "EN",
+    "es": "ES"
+  },
+  "common": {
+    "scroll": "Scroll",
+    "readMore": "Leer más"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "framework": "Framework",
+    "services": "Services",
+    "work": "Work",
+    "philosophy": "Philosophy",
+    "contact": "Contact",
+    "bookCall": "Book a call"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "available": "Available for select engagements",
+    "based": "Based remotely · Working globally",
+    "backToTop": "Back to top",
+    "contact": "Contact"
+  },
+  "locale": {
+    "switch": "Switch language",
+    "en": "EN",
+    "es": "ES"
+  },
+  "common": {
+    "scroll": "Scroll",
+    "readMore": "Read more"
+  }
+}

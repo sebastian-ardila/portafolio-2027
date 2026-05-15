@@ -1,0 +1,237 @@
+{
+  "hero": {
+    "eyebrow": "Senior Engineer · UX Director",
+    "title": "I engineer systems that compound, not collapse.",
+    "subtitleTemplate": "{years}+ years building products that survive growth. Currently at Clinity and RunMyProcess.",
+    "ctaPrimary": { "label": "Book a call", "href": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true" },
+    "ctaSecondary": { "label": "See the work", "href": "/work" },
+    "metaLine": "Independent practice · {currentYear}"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "The person behind the engineering.",
+    "paragraphs": [
+      "I'm Sebastian Ardila — a Senior Engineer and UX Director with {years}+ years building products that ship, scale and stay alive past the founder's first crisis.",
+      "I work at the intersection of architecture and design. I started in code, grew into leading teams, and learned the hard way that the best engineering decisions are the ones that protect a product's future, not the ones that look clever today.",
+      "I'm based remotely. I work with founders, agencies and tech teams who want a partner — not a contractor."
+    ],
+    "caption": "Sebastian Ardila"
+  },
+  "kaizen": {
+    "eyebrow": "The Kaizen Framework",
+    "title": "Continuous improvement is the architecture.",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Observe before you optimize.",
+        "description": "Ship metrics before features. We instrument the system so every decision after week one is data-driven, not opinion-driven."
+      },
+      {
+        "number": "02",
+        "title": "Reduce the cost of change.",
+        "description": "Modular boundaries, typed contracts, deployable in fragments. Refactor becomes routine, not a quarterly event."
+      },
+      {
+        "number": "03",
+        "title": "Compound, don't accumulate.",
+        "description": "Tech debt is interest you didn't agree to pay. Each iteration leaves the codebase cheaper to extend than the last."
+      }
+    ]
+  },
+  "selective": {
+    "eyebrow": "Selective Engineering",
+    "title": "I don't work with everyone. On purpose.",
+    "headers": {
+      "left": "For founders who want",
+      "right": "Not for those looking for"
+    },
+    "rows": [
+      {
+        "forYou": "A technical partner accountable to outcomes",
+        "notForYou": "A pair of hands to execute Jira tickets"
+      },
+      {
+        "forYou": "Systems that grow without rewriting every year",
+        "notForYou": "The cheapest hourly rate on Upwork"
+      },
+      {
+        "forYou": "Honest pushback on the wrong abstraction",
+        "notForYou": "\"Yes\" to every feature request"
+      },
+      {
+        "forYou": "Long-term ownership of architectural decisions",
+        "notForYou": "A quick patch that ships Friday and breaks Monday"
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services as Solutions",
+    "title": "Engineering, framed as business outcomes.",
+    "items": [
+      {
+        "number": "01",
+        "title": "High-traffic architectures",
+        "description": "Next.js and AWS infrastructures designed to absorb 10x load without rewriting. Edge caching, queue-based decoupling, observability baked in.",
+        "stack": ["Next.js", "Node", "AWS", "Postgres", "Redis"]
+      },
+      {
+        "number": "02",
+        "title": "Legacy system modernization",
+        "description": "Strangle-pattern migrations. Your old system stays alive while a typed, tested, modular replacement grows around it. No big-bang rewrites.",
+        "stack": ["TypeScript", "React", "Node", "Docker"]
+      },
+      {
+        "number": "03",
+        "title": "Fractional engineering leadership",
+        "description": "Hiring, technical roadmaps, code review culture, on-call discipline. For founders with product-market fit and no senior engineer to anchor the team.",
+        "stack": ["Strategy", "Hiring", "Architecture"]
+      },
+      {
+        "number": "04",
+        "title": "Architecture audits",
+        "description": "A two-week deep dive: codebase, infrastructure, hiring plan, technical risk. The output is a prioritized roadmap your investors will understand.",
+        "stack": ["Audit", "Roadmap", "Risk"]
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Selected Work",
+    "title": "Where the framework gets tested.",
+    "description": "A taste of the work — three products I've built or led. They span healthcare, enterprise low-code, and finance. The rest of the archive is one click away.",
+    "items": [
+      {
+        "number": "01",
+        "name": "Clinity",
+        "role": "Engineering & Strategy",
+        "summary": "Healthcare platform combining clinical workflows and AI assistance. Contributed to the technical foundation and the product direction.",
+        "stack": ["Next.js", "TypeScript", "Full Stack", "Architecture"],
+        "url": "https://clinity.ai",
+        "domain": "clinity.ai",
+        "year": "2024 — present",
+        "art": "Clinity.ai"
+      },
+      {
+        "number": "02",
+        "name": "RunMyProcess (Fluyenta)",
+        "role": "UX Director · Senior Frontend",
+        "summary": "Low-code enterprise platform serving Fortune 500 teams. Led UX roadmap, cross-cultural engineering coordination, and AI integration.",
+        "stack": ["React", "TypeScript", "Redux", "Low-Code", "AI"],
+        "url": "https://www.runmyprocess.com/",
+        "domain": "runmyprocess.com",
+        "year": "2022 — present",
+        "art": "RMP\nFluyenta"
+      },
+      {
+        "number": "03",
+        "name": "VeriTran",
+        "role": "Senior Frontend · Architecture",
+        "summary": "Financial platform processing real-time transactions over WebSockets. Drove code-splitting and architectural migration to SOLID-aligned modules.",
+        "stack": ["React", "TypeScript", "WebSockets", "Node.js"],
+        "url": "https://veritran.com",
+        "domain": "veritran.com",
+        "year": "2020 — 2022",
+        "art": "VeriTran\nFinancial"
+      },
+      {
+        "number": "04",
+        "name": "Copairo",
+        "role": "Founder · Full-stack",
+        "summary": "Independent product built end-to-end: brand, strategy, engineering. A test bed for opinionated patterns I now reuse in client work.",
+        "stack": ["Next.js", "TypeScript", "Brand"],
+        "url": "https://copairo.com",
+        "domain": "copairo.com",
+        "year": "2023",
+        "art": "Copairo"
+      },
+      {
+        "number": "05",
+        "name": "Mudanzas Pereira",
+        "role": "Engineering · SEO",
+        "summary": "Local logistics business going from zero to first-page Google. Site engineered for performance and organic discovery from day one.",
+        "stack": ["Next.js", "React", "SEO"],
+        "url": "https://mudanzaspereira.co",
+        "domain": "mudanzaspereira.co",
+        "year": "2024",
+        "art": "Mudanzas\nPereira"
+      },
+      {
+        "number": "06",
+        "name": "Café Los Grisales",
+        "role": "Engineering · Brand",
+        "summary": "Site for a local coffee shop in Pereira. Brand identity translated into a fast, content-first web presence with menu, story and contact. Open source.",
+        "stack": ["Next.js", "React", "TypeScript", "Brand"],
+        "url": "https://cafelosgrisales.com",
+        "domain": "cafelosgrisales.com",
+        "year": "2025",
+        "art": "Café\nLos Grisales",
+        "repo": "https://github.com/sebastian-ardila/los-grisales"
+      },
+      {
+        "number": "07",
+        "name": "Café Independencia",
+        "role": "Engineering · UX Design",
+        "summary": "Coffee brand site with editorial care. Quiet typography, responsive layout, content-first hierarchy.",
+        "stack": ["Next.js", "React", "UX", "Responsive"],
+        "domain": "cafeindependencia.co",
+        "year": "2023",
+        "art": "Café\nIndependencia"
+      },
+      {
+        "number": "08",
+        "name": "Casa de Asterión",
+        "role": "Engineering · Editorial UX",
+        "summary": "Editorial site for an independent publishing house. Custom content model, content-first information architecture.",
+        "stack": ["Next.js", "React", "Content"],
+        "url": "https://casadeasterionediciones.com",
+        "domain": "casadeasterionediciones.com",
+        "year": "2024",
+        "art": "Casa de\nAsterión"
+      },
+      {
+        "number": "09",
+        "name": "Pirogramei",
+        "role": "Engineering · Accessibility",
+        "summary": "Static site for a community programming group. Built with Astro for instant loads, deployed to GitHub Pages, accessibility-first.",
+        "stack": ["Astro", "HTML", "CSS", "A11y"],
+        "year": "2023",
+        "art": "Pirogramei"
+      },
+      {
+        "number": "10",
+        "name": "CS Pereira",
+        "role": "Engineering · Community",
+        "summary": "Local CS community site. Hand-coded, lightweight, focused on legibility and shareability. A small project with a clear job.",
+        "stack": ["HTML", "CSS", "JS"],
+        "year": "2022",
+        "art": "CS\nPereira"
+      },
+      {
+        "number": "11",
+        "name": "PL/0 Compiler",
+        "role": "Engineering · Compilers",
+        "summary": "Compiler for the PL/0 language built in Python. Lexer, parser and code generator. A weekend project for the love of the craft.",
+        "stack": ["Python", "Compilers", "Lexing", "Parsing"],
+        "year": "2021",
+        "art": "PL/0\nCompiler"
+      }
+    ],
+    "viewAllLabel": "Open work archive",
+    "viewAllHref": "/work",
+    "archiveTeaser": "more projects across e-commerce, editorial, fintech and open source live in the archive."
+  },
+  "philosophy": {
+    "eyebrow": "Philosophy",
+    "paragraphs": [
+      "Software is a living system. It is never finished — it is maintained, observed, and improved. Every codebase carries a hidden interest rate; the engineer's job is to keep that rate low so the founder can keep investing in growth, not in repairs.",
+      "I don't believe in heroic rewrites. I believe in small, deliberate improvements that, compounded across years, separate companies that scale from companies that stall."
+    ],
+    "signature": "— That is Kaizen. That is the work."
+  },
+  "contact": {
+    "eyebrow": "Let's talk",
+    "title": "If the problem is interesting, the conversation is free.",
+    "subtitle": "30 minutes on Google Meet. Tell me what you're building — I'll tell you whether I'm the right partner for it.",
+    "callLabel": "Book a 30-minute call",
+    "callHref": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true"
+  }
+}
