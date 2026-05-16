@@ -24,7 +24,7 @@
       {
         "number": "01",
         "title": "Observe before you optimize.",
-        "description": "Ship metrics before features. We instrument the system so every decision after week one is data-driven, not opinion-driven."
+        "description": "Measure before you build. We instrument from the first commit so every decision comes from the data, not from the boardroom."
       },
       {
         "number": "02",

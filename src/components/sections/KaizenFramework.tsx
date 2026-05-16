@@ -84,7 +84,13 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
                     {pillar.number}
                   </div>
                   <div className="relative z-[2] mt-4 w-10 h-[2px] bg-[var(--color-ink-deep)]" />
-                  <h3 className="relative z-[2] text-h3 mt-5 max-w-[18ch]">
+                  <h3
+                    className="relative z-[2] text-h3 mt-5 max-w-[18ch]"
+                    style={{
+                      WebkitTextStroke: '4px var(--color-cream)',
+                      paintOrder: 'stroke fill',
+                    }}
+                  >
                     {pillar.title}
                   </h3>
                   <p className="relative z-[2] mt-4 text-[var(--color-ink-graphite)] max-w-[36ch] leading-relaxed">

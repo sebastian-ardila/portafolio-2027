@@ -24,7 +24,7 @@
       {
         "number": "01",
         "title": "Observa antes de optimizar.",
-        "description": "Métricas antes que features. Instrumentamos el sistema para que cada decisión después de la semana uno se base en datos, no en opiniones."
+        "description": "Medir antes de construir. Instrumentamos desde el primer commit para que cada decisión salga de los datos, no de la sala de juntas."
       },
       {
         "number": "02",
