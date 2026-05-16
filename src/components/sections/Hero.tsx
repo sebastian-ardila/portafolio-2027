@@ -29,17 +29,18 @@ export function Hero({ data }: { data: HeroData }) {
         aria-hidden
       />
 
+      {/* Decorative shapes only on desktop — mobile is tight enough already. */}
       <Shape
         variant="asterisk"
         color="ink"
         size={24}
-        className="absolute top-[28%] left-[6%] hidden md:block z-[1]"
+        className="absolute top-[28%] left-[6%] hidden lg:block z-[1]"
       />
       <Shape
         variant="squiggle"
         color="coral"
         size={56}
-        className="absolute bottom-[18%] left-[44%] hidden md:block z-[1]"
+        className="absolute bottom-[18%] left-[44%] hidden lg:block z-[1]"
         rotate={-4}
       />
 

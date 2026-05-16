@@ -228,12 +228,13 @@
     padding-block: clamp(96px, 12vw, 192px);
   }
 
-  /* Hero: fills the first viewport, distributes its three rows so the
-     eyebrow sits near the top and the subtitle/CTAs sit near the bottom. */
+  /* Hero: fills the first viewport. On mobile the layout collapses to a
+     center-aligned column; on desktop title and CTAs anchor to top/bottom. */
   .hero-section {
     position: relative;
     min-height: 100svh;
-    padding-block: clamp(96px, 9vw, 120px);
+    padding-top: clamp(88px, 14vw, 120px);
+    padding-bottom: clamp(40px, 8vw, 110px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -241,26 +242,40 @@
   @media (min-width: 768px) {
     .hero-section {
       min-height: 100vh;
+      padding-top: clamp(96px, 9vw, 120px);
+      padding-bottom: clamp(80px, 8vw, 110px);
     }
   }
 
-  /* The inner container becomes the flex layout for the three hero rows
-     (top: eyebrow, center: title + image, bottom: subtitle + CTAs). */
   .hero-section > .container-x {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: clamp(24px, 3vw, 48px);
+    justify-content: center;
+    gap: clamp(32px, 6vw, 48px);
+  }
+  @media (min-width: 768px) {
+    .hero-section > .container-x {
+      justify-content: space-between;
+      gap: clamp(24px, 3vw, 48px);
+    }
   }
 
-  /* Hero display title: huge, full presence. */
+  /* Hero display title: huge, full presence. Mobile uses a smaller floor
+     so a three-line headline doesn't dominate the entire viewport. */
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 8.5vw, 8.5rem);
+    font-size: clamp(2.5rem, 12vw, 8.5rem);
     font-weight: 800;
-    line-height: 0.92;
-    letter-spacing: -0.045em;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: clamp(3rem, 8.5vw, 8.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+    }
   }
 
   /* Hero subtitle: larger and more readable. */
@@ -280,41 +295,58 @@
     display: block;
   }
 
-  /* Soft feathered edges on the Hero background. We feather along TWO
-     axes (radial for the visual centerpiece, linear for the left side
-     where the headline lives) and dim global opacity so the drawing
-     reads as backdrop, not foreground. The radial center is offset to
-     the right so the left side stays mostly cream behind the title. */
+  /* Soft feathered edges on the Hero background.
+     - Desktop: radial centered right (70% 50%) + linear left→right fade,
+       composited as intersect so headline column stays mostly cream.
+     - Mobile: radial centered (50% 60%) without the linear fade — there's
+       no left-column to protect since headline sits above the image. */
   .hero-bg-feather {
-    opacity: 0.55;
-    -webkit-mask-image:
-      radial-gradient(
-        ellipse 55% 60% at 70% 50%,
-        black 0%,
-        rgba(0, 0, 0, 0.55) 55%,
-        transparent 90%
-      ),
-      linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 0.4) 25%,
-        black 50%
-      );
-    mask-image:
-      radial-gradient(
-        ellipse 55% 60% at 70% 50%,
-        black 0%,
-        rgba(0, 0, 0, 0.55) 55%,
-        transparent 90%
-      ),
-      linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 0.4) 25%,
-        black 50%
-      );
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
+    opacity: 0.45;
+    -webkit-mask-image: radial-gradient(
+      ellipse 65% 55% at 50% 60%,
+      black 0%,
+      rgba(0, 0, 0, 0.55) 55%,
+      transparent 90%
+    );
+    mask-image: radial-gradient(
+      ellipse 65% 55% at 50% 60%,
+      black 0%,
+      rgba(0, 0, 0, 0.55) 55%,
+      transparent 90%
+    );
+  }
+  @media (min-width: 768px) {
+    .hero-bg-feather {
+      opacity: 0.55;
+      -webkit-mask-image:
+        radial-gradient(
+          ellipse 55% 60% at 70% 50%,
+          black 0%,
+          rgba(0, 0, 0, 0.55) 55%,
+          transparent 90%
+        ),
+        linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, 0.4) 25%,
+          black 50%
+        );
+      mask-image:
+        radial-gradient(
+          ellipse 55% 60% at 70% 50%,
+          black 0%,
+          rgba(0, 0, 0, 0.55) 55%,
+          transparent 90%
+        ),
+        linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, 0.4) 25%,
+          black 50%
+        );
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+    }
   }
 
   /* `section-stack` is intentionally a no-op now — sections flow
