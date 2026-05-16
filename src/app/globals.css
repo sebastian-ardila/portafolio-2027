@@ -280,6 +280,25 @@
     display: block;
   }
 
+  /* Soft feathered edges on the Hero background. A radial gradient mask
+     keeps the center fully opaque and fades to transparent toward the
+     edges so the illustration dissolves into the cream surface instead
+     of ending on a hard rectangle. */
+  .hero-bg-feather {
+    -webkit-mask-image: radial-gradient(
+      ellipse at center,
+      black 45%,
+      rgba(0, 0, 0, 0.4) 75%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse at center,
+      black 45%,
+      rgba(0, 0, 0, 0.4) 75%,
+      transparent 100%
+    );
+  }
+
   /* `section-stack` is intentionally a no-op now — sections flow
      naturally without rounded tops or drop shadows. */
   .section-stack {

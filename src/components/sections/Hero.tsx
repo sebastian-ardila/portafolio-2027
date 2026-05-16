@@ -24,8 +24,8 @@ export function Hero({ data }: { data: HeroData }) {
         width={1523}
         height={1342}
         priority
-        sizes="(max-width: 768px) 90vw, 60vw"
-        className="hero-illustration pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-[-6%] md:right-[-10%] w-[90vw] md:w-[62vw] max-w-[1100px] h-auto z-0"
+        sizes="(max-width: 768px) 110vw, 85vw"
+        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-[-8%] md:right-[-4%] w-[110vw] md:w-[82vw] max-w-[1500px] h-auto z-0"
         aria-hidden
       />
 
