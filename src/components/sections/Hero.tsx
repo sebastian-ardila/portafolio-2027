@@ -39,7 +39,7 @@ export function Hero({ data }: { data: HeroData }) {
         playsInline
         preload="metadata"
         aria-hidden
-        className="pointer-events-none select-none absolute right-[3%] md:right-[14%] top-[44%] md:top-[42%] -translate-y-full w-[120px] md:w-[200px] h-auto z-[1]"
+        className="pointer-events-none select-none absolute right-[49%] top-[6%] w-[120px] md:w-[200px] h-auto z-[1]"
       />
 
       {/* Decorative shapes only on desktop — mobile is tight enough already. */}
