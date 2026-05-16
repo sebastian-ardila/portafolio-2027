@@ -265,9 +265,9 @@
      so a three-line headline doesn't dominate the entire viewport. */
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 10vw, 3.75rem);
+    font-size: clamp(2.6rem, 13vw, 5rem);
     font-weight: 800;
-    line-height: 0.98;
+    line-height: 0.95;
     letter-spacing: -0.035em;
   }
   @media (min-width: 768px) {
