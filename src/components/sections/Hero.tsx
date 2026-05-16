@@ -24,7 +24,7 @@ export function Hero({ data }: { data: HeroData }) {
             </Reveal>
           </div>
 
-          <div className="md:col-span-5 flex flex-col items-center md:items-end gap-5">
+          <div className="md:col-span-5 flex flex-col items-center md:items-end">
             <Reveal
               mode="mount"
               delay={0.3}
@@ -40,32 +40,6 @@ export function Hero({ data }: { data: HeroData }) {
                 aria-hidden
                 className="pointer-events-none select-none w-full h-auto block"
               />
-            </Reveal>
-            <Reveal
-              mode="mount"
-              delay={0.45}
-              className="flex items-center"
-            >
-              <Button
-                href="https://www.linkedin.com/in/sebastian-ardila/"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="ghost"
-                icon={<Icon name="linkedin" size={16} />}
-                trailIcon="arrow-up-right"
-                join="left"
-              >
-                Sebastian Ardila
-              </Button>
-              <Button
-                href="/about"
-                variant="ghost"
-                icon={<Icon name="user" size={16} />}
-                trailIcon={null}
-                join="right"
-              >
-                Me
-              </Button>
             </Reveal>
           </div>
         </div>
