@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
-import { Shape } from '@/components/primitives/Shape'
 import { Icon } from '@/components/primitives/Icon'
 import { Reveal } from '@/components/motion/Reveal'
 import { yearsInPractice } from '@/lib/year'
@@ -16,59 +14,63 @@ export function Hero({ data }: { data: HeroData }) {
 
   return (
     <section id="hero" className="hero-section section-base overflow-hidden">
-      {/* Background illustration: positioned off to the right of the hero,
-          fills the available right-half visually, sits behind everything. */}
-      <Image
-        src="/images/background.webp"
-        alt=""
-        width={1523}
-        height={1342}
-        priority
-        sizes="(max-width: 768px) 95vw, 70vw"
-        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-0 w-[75vw] md:w-[70vw] max-w-[1100px] h-auto z-0"
-        aria-hidden
-      />
-
-      {/* Character sitting on top of the right mountain of the bridge. Bottom of
-          the video anchored to the cliff-top via -translate-y-full. */}
-      <video
-        src="/videos/saludando.webm"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden
-        className="pointer-events-none select-none absolute right-[6%] top-[33%] w-[120px] md:w-[200px] h-auto z-[1]"
-      />
-
-      {/* Decorative shapes only on desktop — mobile is tight enough already. */}
-      <Shape
-        variant="asterisk"
-        color="ink"
-        size={24}
-        className="absolute top-[28%] left-[6%] hidden lg:block z-[1]"
-      />
-      <Shape
-        variant="squiggle"
-        color="coral"
-        size={56}
-        className="absolute bottom-[18%] left-[44%] hidden lg:block z-[1]"
-        rotate={-4}
-      />
-
       <Container className="relative z-[2]">
-        {/* Title pinned to the top on mobile (clean stack: title → image → CTAs);
-            vertically centered on desktop to balance the right-side illustration. */}
-        <div className="flex-1 flex items-start md:items-center">
-          <Reveal mode="mount" delay={0.1}>
-            <h1 className="hero-title md:max-w-[60%]">
-              {data.title}
-            </h1>
-          </Reveal>
+        {/* Top block: title (left on desktop, top on mobile) +
+            video + LinkedIn/Me button (right on desktop, below title on mobile). */}
+        <div className="flex-1 flex flex-col gap-8 md:gap-10 md:grid md:grid-cols-12 md:items-center">
+          <div className="md:col-span-7">
+            <Reveal mode="mount" delay={0.1}>
+              <h1 className="hero-title">{data.title}</h1>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-5 flex flex-col items-center md:items-end gap-5">
+            <Reveal
+              mode="mount"
+              delay={0.3}
+              className="w-full max-w-[320px] md:max-w-[460px]"
+            >
+              <video
+                src="/videos/saludando.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden
+                className="pointer-events-none select-none w-full h-auto block"
+              />
+            </Reveal>
+            <Reveal
+              mode="mount"
+              delay={0.45}
+              className="flex items-center"
+            >
+              <Button
+                href="https://www.linkedin.com/in/sebastian-ardila/"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="ghost"
+                icon={<Icon name="linkedin" size={16} />}
+                trailIcon="arrow-up-right"
+                join="left"
+              >
+                Sebastian Ardila
+              </Button>
+              <Button
+                href="/about"
+                variant="ghost"
+                icon={<Icon name="user" size={16} />}
+                trailIcon={null}
+                join="right"
+              >
+                Me
+              </Button>
+            </Reveal>
+          </div>
         </div>
 
-        {/* Subtitle + CTAs anchor to the bottom of the viewport */}
+        {/* Subtitle + main CTAs anchor to the bottom of the viewport. */}
         <div className="grid grid-cols-12 gap-4 md:gap-8 items-end">
           <Reveal
             mode="mount"
