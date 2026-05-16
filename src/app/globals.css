@@ -280,23 +280,41 @@
     display: block;
   }
 
-  /* Soft feathered edges on the Hero background. A radial gradient mask
-     keeps the center fully opaque and fades to transparent toward the
-     edges so the illustration dissolves into the cream surface instead
-     of ending on a hard rectangle. */
+  /* Soft feathered edges on the Hero background. We feather along TWO
+     axes (radial for the visual centerpiece, linear for the left side
+     where the headline lives) and dim global opacity so the drawing
+     reads as backdrop, not foreground. The radial center is offset to
+     the right so the left side stays mostly cream behind the title. */
   .hero-bg-feather {
-    -webkit-mask-image: radial-gradient(
-      ellipse at center,
-      black 45%,
-      rgba(0, 0, 0, 0.4) 75%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      ellipse at center,
-      black 45%,
-      rgba(0, 0, 0, 0.4) 75%,
-      transparent 100%
-    );
+    opacity: 0.55;
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse 55% 60% at 70% 50%,
+        black 0%,
+        rgba(0, 0, 0, 0.55) 55%,
+        transparent 90%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.4) 25%,
+        black 50%
+      );
+    mask-image:
+      radial-gradient(
+        ellipse 55% 60% at 70% 50%,
+        black 0%,
+        rgba(0, 0, 0, 0.55) 55%,
+        transparent 90%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.4) 25%,
+        black 50%
+      );
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
 
   /* `section-stack` is intentionally a no-op now — sections flow
