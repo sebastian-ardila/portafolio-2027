@@ -47,7 +47,9 @@ export function Hero({ data }: { data: HeroData }) {
         {/* Title sits in the upper half */}
         <div className="flex-1 flex items-center">
           <Reveal mode="mount" delay={0.1}>
-            <h1 className="hero-title max-w-[14ch]">{data.title}</h1>
+            <h1 className="hero-title max-w-[14ch] md:max-w-[60%]">
+              {data.title}
+            </h1>
           </Reveal>
         </div>
 
