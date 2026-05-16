@@ -16,72 +16,42 @@ export function Hero({ data }: { data: HeroData }) {
 
   return (
     <section id="hero" className="hero-section section-base overflow-hidden">
+      {/* Background illustration: positioned off to the right of the hero,
+          fills the available right-half visually, sits behind everything. */}
+      <Image
+        src="/images/background.webp"
+        alt=""
+        width={1523}
+        height={1342}
+        priority
+        sizes="(max-width: 768px) 90vw, 60vw"
+        className="hero-illustration pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-[-6%] md:right-[-10%] w-[90vw] md:w-[62vw] max-w-[1100px] h-auto z-0"
+        aria-hidden
+      />
+
       <Shape
         variant="asterisk"
         color="ink"
         size={24}
-        className="absolute top-[28%] right-[5%] hidden md:block"
+        className="absolute top-[28%] left-[6%] hidden md:block z-[1]"
       />
       <Shape
         variant="squiggle"
         color="coral"
         size={56}
-        className="absolute bottom-[18%] left-[44%] hidden md:block"
+        className="absolute bottom-[18%] left-[44%] hidden md:block z-[1]"
         rotate={-4}
       />
 
-      <Container>
-        {/* Row 2 — title + illustration. On mobile: stack with the
-            illustration block growing to fill the middle and center its
-            content. On desktop: 12-col grid with items-center. */}
-        <div className="flex flex-col gap-8 flex-1 md:grid md:grid-cols-12 md:gap-8 md:items-center md:flex-none">
-          <div className="md:col-span-7">
-            <Reveal mode="mount" delay={0.1}>
-              <h1 className="hero-title max-w-[14ch]">{data.title}</h1>
-            </Reveal>
-          </div>
-          <div className="flex flex-col items-center justify-center gap-5 flex-1 md:col-span-5 md:flex-none">
-            <Reveal
-              mode="mount"
-              delay={0.3}
-              className="w-full max-w-[340px] md:max-w-[460px]"
-            >
-              <Image
-                src="/images/hero.webp"
-                alt="Sebastian Ardila"
-                width={1400}
-                height={1400}
-                priority
-                sizes="(max-width: 768px) 80vw, 460px"
-                className="hero-illustration"
-              />
-            </Reveal>
-            <Reveal mode="mount" delay={0.45} className="flex items-center justify-center">
-              <Button
-                href="https://www.linkedin.com/in/sebastian-ardila/"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="ghost"
-                icon={<Icon name="linkedin" size={16} />}
-                trailIcon="arrow-up-right"
-                join="left"
-              >
-                Sebastian Ardila
-              </Button>
-              <Button
-                href="/about"
-                variant="ghost"
-                icon={<Icon name="user" size={16} />}
-                trailIcon={null}
-                join="right"
-              >
-                Me
-              </Button>
-            </Reveal>
-          </div>
+      <Container className="relative z-[2]">
+        {/* Title sits in the upper half */}
+        <div className="flex-1 flex items-center">
+          <Reveal mode="mount" delay={0.1}>
+            <h1 className="hero-title max-w-[14ch]">{data.title}</h1>
+          </Reveal>
         </div>
 
-        {/* Row 3 — subtitle + CTAs near the bottom */}
+        {/* Subtitle + CTAs anchor to the bottom of the viewport */}
         <div className="grid grid-cols-12 gap-4 md:gap-8 items-end">
           <Reveal
             mode="mount"
