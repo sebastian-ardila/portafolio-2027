@@ -265,10 +265,10 @@
      so a three-line headline doesn't dominate the entire viewport. */
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 12vw, 8.5rem);
+    font-size: clamp(2rem, 10vw, 3.75rem);
     font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.04em;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
   }
   @media (min-width: 768px) {
     .hero-title {
@@ -301,18 +301,18 @@
      - Mobile: radial centered (50% 60%) without the linear fade — there's
        no left-column to protect since headline sits above the image. */
   .hero-bg-feather {
-    opacity: 0.45;
+    opacity: 0.22;
     -webkit-mask-image: radial-gradient(
-      ellipse 65% 55% at 50% 60%,
+      ellipse 60% 50% at 50% 70%,
       black 0%,
-      rgba(0, 0, 0, 0.55) 55%,
-      transparent 90%
+      rgba(0, 0, 0, 0.45) 55%,
+      transparent 88%
     );
     mask-image: radial-gradient(
-      ellipse 65% 55% at 50% 60%,
+      ellipse 60% 50% at 50% 70%,
       black 0%,
-      rgba(0, 0, 0, 0.55) 55%,
-      transparent 90%
+      rgba(0, 0, 0, 0.45) 55%,
+      transparent 88%
     );
   }
   @media (min-width: 768px) {

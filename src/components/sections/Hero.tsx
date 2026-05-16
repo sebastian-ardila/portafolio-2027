@@ -25,7 +25,7 @@ export function Hero({ data }: { data: HeroData }) {
         height={1342}
         priority
         sizes="(max-width: 768px) 95vw, 70vw"
-        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-0 w-[95vw] md:w-[70vw] max-w-[1100px] h-auto z-0"
+        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-[62%] md:top-1/2 -translate-y-1/2 right-0 w-[78vw] md:w-[70vw] max-w-[1100px] h-auto z-0"
         aria-hidden
       />
 
@@ -45,10 +45,11 @@ export function Hero({ data }: { data: HeroData }) {
       />
 
       <Container className="relative z-[2]">
-        {/* Title sits in the upper half */}
-        <div className="flex-1 flex items-center">
+        {/* Title pinned to the top on mobile (clean stack: title → image → CTAs);
+            vertically centered on desktop to balance the right-side illustration. */}
+        <div className="flex-1 flex items-start md:items-center">
           <Reveal mode="mount" delay={0.1}>
-            <h1 className="hero-title max-w-[14ch] md:max-w-[60%]">
+            <h1 className="hero-title md:max-w-[60%]">
               {data.title}
             </h1>
           </Reveal>
