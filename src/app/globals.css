@@ -301,18 +301,18 @@
      - Mobile: radial centered (50% 60%) without the linear fade — there's
        no left-column to protect since headline sits above the image. */
   .hero-bg-feather {
-    opacity: 0.22;
+    opacity: 0.38;
     -webkit-mask-image: radial-gradient(
-      ellipse 60% 50% at 50% 70%,
+      ellipse 65% 55% at 50% 50%,
       black 0%,
-      rgba(0, 0, 0, 0.45) 55%,
-      transparent 88%
+      rgba(0, 0, 0, 0.5) 55%,
+      transparent 90%
     );
     mask-image: radial-gradient(
-      ellipse 60% 50% at 50% 70%,
+      ellipse 65% 55% at 50% 50%,
       black 0%,
-      rgba(0, 0, 0, 0.45) 55%,
-      transparent 88%
+      rgba(0, 0, 0, 0.5) 55%,
+      transparent 90%
     );
   }
   @media (min-width: 768px) {

@@ -25,8 +25,21 @@ export function Hero({ data }: { data: HeroData }) {
         height={1342}
         priority
         sizes="(max-width: 768px) 95vw, 70vw"
-        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-[62%] md:top-1/2 -translate-y-1/2 right-0 w-[78vw] md:w-[70vw] max-w-[1100px] h-auto z-0"
+        className="hero-illustration hero-bg-feather pointer-events-none select-none absolute top-1/2 -translate-y-1/2 right-0 w-[75vw] md:w-[70vw] max-w-[1100px] h-auto z-0"
         aria-hidden
+      />
+
+      {/* Character sitting on top of the right mountain of the bridge. Bottom of
+          the video anchored to the cliff-top via -translate-y-full. */}
+      <video
+        src="/videos/saludando.webm"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
+        className="pointer-events-none select-none absolute right-[3%] md:right-[14%] top-[44%] md:top-[42%] -translate-y-full w-[120px] md:w-[200px] h-auto z-[1]"
       />
 
       {/* Decorative shapes only on desktop — mobile is tight enough already. */}
