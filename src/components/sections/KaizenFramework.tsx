@@ -77,15 +77,17 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
                       alt=""
                       width={600}
                       height={600}
-                      className={`pointer-events-none select-none absolute w-36 h-36 md:w-48 md:h-48 object-contain z-[2] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${variant.base} ${variant.initial} ${variant.final}`}
+                      className={`pointer-events-none select-none absolute w-36 h-36 md:w-48 md:h-48 object-contain z-[1] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${variant.base} ${variant.initial} ${variant.final}`}
                     />
                   )}
-                  <div className="relative z-[1] font-display text-[2.6rem] md:text-[3.4rem] leading-none font-extrabold text-[var(--color-ink-deep)] -tracking-[0.04em]">
+                  <div className="relative z-[2] font-display text-[2.6rem] md:text-[3.4rem] leading-none font-extrabold text-[var(--color-ink-deep)] -tracking-[0.04em]">
                     {pillar.number}
                   </div>
-                  <div className="mt-4 w-10 h-[2px] bg-[var(--color-ink-deep)]" />
-                  <h3 className="text-h3 mt-5 max-w-[18ch]">{pillar.title}</h3>
-                  <p className="mt-4 text-[var(--color-ink-graphite)] max-w-[36ch] leading-relaxed">
+                  <div className="relative z-[2] mt-4 w-10 h-[2px] bg-[var(--color-ink-deep)]" />
+                  <h3 className="relative z-[2] text-h3 mt-5 max-w-[18ch]">
+                    {pillar.title}
+                  </h3>
+                  <p className="relative z-[2] mt-4 text-[var(--color-ink-graphite)] max-w-[36ch] leading-relaxed">
                     {pillar.description}
                   </p>
                 </Card>
