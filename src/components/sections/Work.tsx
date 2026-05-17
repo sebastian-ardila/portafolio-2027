@@ -8,61 +8,25 @@ import { ProjectIcon } from '@/components/primitives/ProjectIcon'
 import { Reveal } from '@/components/motion/Reveal'
 import type { Work, Project } from '@/content/schema'
 
-function ProjectCard({ p, idx }: { p: Project; idx: number }) {
-  const bg =
-    idx % 3 === 0
-      ? 'linear-gradient(135deg, var(--color-cream-soft), var(--color-paper))'
-      : idx % 3 === 1
-        ? 'linear-gradient(135deg, var(--color-paper), var(--color-cream))'
-        : 'linear-gradient(135deg, var(--color-cream), var(--color-cream-soft))'
-
+function ProjectLogo({ p }: { p: Project }) {
   const inner = (
-    <article className="project-card transition-transform duration-500 group-hover:-translate-y-1">
-      <div className="project-thumb" style={{ background: bg }}>
-        <ProjectIcon
-          name={p.name}
-          domain={p.domain}
-          iconSrc={p.iconSrc}
-          size={48}
-        />
-        <div className="project-thumb-art text-[1.7rem] md:text-[2rem] whitespace-pre-line">
-          <span className="leading-[0.95] -tracking-[0.04em]">
-            {p.art ?? p.name}
-          </span>
-        </div>
-      </div>
-      <div className="p-4 md:p-5 flex flex-col gap-2.5 flex-1 min-h-0">
-        <div className="flex items-baseline justify-between gap-3 text-[var(--color-ink-muted)]">
-          <span className="font-mono text-[0.7rem] uppercase tracking-[0.15em]">
-            {p.number}
-          </span>
-          {p.year && (
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.15em]">
-              {p.year}
-            </span>
-          )}
-        </div>
-        <h3 className="font-display text-[1.55rem] md:text-[1.75rem] font-extrabold -tracking-[0.02em] leading-[1.05] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors duration-500 line-clamp-2">
-          {p.name}
-        </h3>
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)] line-clamp-1">
-          {p.role}
+    <div className="group flex flex-col items-center text-center px-2 py-4 transition-transform duration-500 group-hover:-translate-y-1">
+      <ProjectIcon
+        name={p.name}
+        domain={p.domain}
+        iconSrc={p.iconSrc}
+        size={112}
+        className="transition-transform duration-500 group-hover:scale-[1.04]"
+      />
+      <p className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors leading-[1.3] line-clamp-2">
+        {p.name}
+      </p>
+      {p.year && (
+        <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)]">
+          {p.year}
         </p>
-        <p className="text-[var(--color-ink-graphite)] text-[0.88rem] leading-[1.45] line-clamp-2 flex-1 min-h-0">
-          {p.summary}
-        </p>
-        {p.url && (
-          <span className="mt-auto pt-1 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-deep)] inline-flex items-center gap-2">
-            Visit
-            <Icon
-              name="arrow-up-right"
-              size={14}
-              className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-0.5"
-            />
-          </span>
-        )}
-      </div>
-    </article>
+      )}
+    </div>
   )
 
   if (p.url) {
@@ -71,7 +35,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
         href={p.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block group h-full focus:outline-none rounded-[24px]"
+        className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-paper)] rounded-2xl"
         aria-label={`${p.name} — ${p.role}`}
         draggable={false}
       >
@@ -79,7 +43,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
       </a>
     )
   }
-  return <div className="block group h-full">{inner}</div>
+  return <div className="block group">{inner}</div>
 }
 
 export function WorkSection({ data }: { data: Work }) {
@@ -269,10 +233,10 @@ export function WorkSection({ data }: { data: Work }) {
             <div
               key={p.number}
               data-card
-              className="snap-start shrink-0 w-[62vw] sm:w-[42vw] md:w-[30vw] lg:w-[20vw] max-w-[300px]"
+              className="snap-start shrink-0 w-[40vw] sm:w-[26vw] md:w-[18vw] lg:w-[12vw] max-w-[180px]"
             >
               <Reveal delay={0.03 * Math.min(idx, 6)}>
-                <ProjectCard p={p} idx={idx} />
+                <ProjectLogo p={p} />
               </Reveal>
             </div>
           ))}
