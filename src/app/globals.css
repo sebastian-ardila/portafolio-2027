@@ -655,62 +655,63 @@
     color: var(--color-cream);
   }
 
-  /* Horizontal carousel for the Work section. Hides the native scrollbar
-     across browsers and uses overflow-clip on the Y axis with a generous
-     clip margin so card hover-lifts (translate-y) aren't sliced off by the
-     scroller's bounds. */
-  .work-scroller {
-    overflow-x: scroll;
+  /* Auto-scrolling infinite logo marquee for the Work section. The track
+     holds two copies of the project list back-to-back; translating it by
+     -50% (one full copy width) lands us at the start of the duplicate,
+     which is identical, so the animation can restart with no visible jump.
+     overflow-y: clip with a margin keeps room for the hover-lift without
+     introducing a vertical scrollbar. */
+  .logo-marquee {
+    position: relative;
+    overflow-x: hidden;
     overflow-y: clip;
     overflow-clip-margin: 24px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    touch-action: pan-x;
+    /* Soft fades at both edges so the logos enter/exit gently. */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 6%,
+      black 94%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 6%,
+      black 94%,
+      transparent 100%
+    );
   }
-  .work-scroller::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
+  .logo-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    animation: logo-marquee-scroll 50s linear infinite;
+    will-change: transform;
   }
-  .work-scroller::-webkit-scrollbar-track,
-  .work-scroller::-webkit-scrollbar-thumb {
-    display: none;
+  .logo-marquee:hover .logo-marquee-track,
+  .logo-marquee:focus-within .logo-marquee-track {
+    animation-play-state: paused;
+  }
+  .logo-marquee-item {
+    flex-shrink: 0;
+    width: clamp(140px, 14vw, 180px);
+  }
+  @keyframes logo-marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* -50% lands on the start of the duplicated half. */
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation: none;
+    }
   }
 
-  /* Round nav buttons for the work carousel — match the float-chip look but
-     square (icon-only). */
-  .carousel-nav {
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    border: 1px solid var(--color-line-strong);
-    background: var(--color-cream);
-    color: var(--color-ink-deep);
-    cursor: pointer;
-    transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
-  }
-  .carousel-nav:hover {
-    background: var(--color-ink-deep);
-    color: var(--color-cream);
-    border-color: var(--color-ink-deep);
-  }
-  .carousel-nav:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-coral) 35%, transparent);
-  }
-  .carousel-nav:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-  }
-  .carousel-nav:disabled:hover {
-    background: var(--color-cream);
-    color: var(--color-ink-deep);
-    border-color: var(--color-line-strong);
-  }
 }
 
 @layer utilities {
