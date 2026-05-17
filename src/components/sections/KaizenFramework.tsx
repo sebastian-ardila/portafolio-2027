@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Container } from '@/components/primitives/Container'
 import { Card } from '@/components/primitives/Card'
+import { Button } from '@/components/primitives/Button'
+import { Icon } from '@/components/primitives/Icon'
 import { Reveal } from '@/components/motion/Reveal'
 import type { Kaizen } from '@/content/schema'
 
@@ -145,6 +147,45 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
             )
           })}
         </div>
+
+        {(data.ctaPrimary || data.ctaSecondary) && (
+          <Reveal
+            delay={0.2}
+            className="mt-14 md:mt-20 flex flex-wrap items-center gap-3"
+          >
+            {data.ctaPrimary && (
+              <Button
+                href={data.ctaPrimary.href}
+                variant="mustard"
+                size="lg"
+                target={
+                  data.ctaPrimary.href.startsWith('http')
+                    ? '_blank'
+                    : undefined
+                }
+                rel={
+                  data.ctaPrimary.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
+                icon={<Icon name="calendar" size={18} />}
+                trailIcon="arrow-right"
+              >
+                {data.ctaPrimary.label}
+              </Button>
+            )}
+            {data.ctaSecondary && (
+              <Button
+                href={data.ctaSecondary.href}
+                variant="ghost"
+                icon={<Icon name="briefcase" size={16} />}
+                trailIcon="arrow-up-right"
+              >
+                {data.ctaSecondary.label}
+              </Button>
+            )}
+          </Reveal>
+        )}
       </Container>
     </section>
   )

@@ -20,7 +20,7 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
 
   const links = [
     { href: '/#framework', label: t('framework'), icon: 'star' as const },
-    { href: '/#services', label: t('services'), icon: 'briefcase' as const },
+    { href: '/services', label: t('services'), icon: 'briefcase' as const },
     { href: '/work', label: t('work'), icon: 'eye' as const },
   ]
 

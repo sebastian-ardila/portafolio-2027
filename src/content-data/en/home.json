@@ -36,7 +36,15 @@
         "title": "Compound, don't accumulate.",
         "description": "Tech debt is interest you didn't agree to pay. Each iteration leaves the codebase cheaper to extend than the last."
       }
-    ]
+    ],
+    "ctaPrimary": {
+      "label": "Book a call",
+      "href": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true"
+    },
+    "ctaSecondary": {
+      "label": "Explore services",
+      "href": "/services"
+    }
   },
   "selective": {
     "eyebrow": "Selective Engineering",

@@ -36,7 +36,15 @@
         "title": "Compón, no acumules.",
         "description": "La deuda técnica es un interés que no acordaste pagar. Cada iteración deja el código más barato de extender que la anterior."
       }
-    ]
+    ],
+    "ctaPrimary": {
+      "label": "Agendar llamada",
+      "href": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0UrInAKw9HTMf1DVGy1jTv12TmZuKuSuMYHB5DNm_0gWQ1MZCUZaqJMkqNJzp8zaB0ehjT14Y5?gv=true"
+    },
+    "ctaSecondary": {
+      "label": "Ver servicios",
+      "href": "/services"
+    }
   },
   "selective": {
     "eyebrow": "Ingeniería Selectiva",
@@ -82,7 +90,7 @@
       },
       {
         "number": "03",
-        "title": "Liderazgo técnico fractional",
+        "title": "Liderazgo técnico fraccional",
         "description": "Hiring, roadmaps técnicos, cultura de code review, disciplina de on-call. Para fundadores con product-market fit y sin ingeniero senior que ancle al equipo.",
         "stack": ["Estrategia", "Hiring", "Arquitectura"]
       },

@@ -19,6 +19,12 @@ export const KaizenSchema = z.object({
   eyebrow: z.string(),
   title: z.string(),
   pillars: z.array(KaizenPillarSchema),
+  ctaPrimary: z
+    .object({ label: z.string(), href: z.string() })
+    .optional(),
+  ctaSecondary: z
+    .object({ label: z.string(), href: z.string() })
+    .optional(),
 })
 
 export const SelectiveRowSchema = z.object({
