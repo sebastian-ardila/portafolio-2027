@@ -31,7 +31,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
           </span>
         </div>
       </div>
-      <div className="p-5 md:p-6 flex flex-col gap-3 flex-1 min-h-0">
+      <div className="p-4 md:p-5 flex flex-col gap-2.5 flex-1 min-h-0">
         <div className="flex items-baseline justify-between gap-3 text-[var(--color-ink-muted)]">
           <span className="font-mono text-[0.7rem] uppercase tracking-[0.15em]">
             {p.number}
@@ -48,7 +48,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)] line-clamp-1">
           {p.role}
         </p>
-        <p className="text-[var(--color-ink-graphite)] text-[0.92rem] leading-[1.5] line-clamp-3 flex-1 min-h-0">
+        <p className="text-[var(--color-ink-graphite)] text-[0.88rem] leading-[1.45] line-clamp-2 flex-1 min-h-0">
           {p.summary}
         </p>
         {p.url && (
@@ -191,17 +191,17 @@ export function WorkSection({ data }: { data: Work }) {
   }
 
   return (
-    <section id="work" className="section-flow section-paper">
+    <section id="work" className="section-flow section-compact section-paper">
       <Container>
         <Reveal>
-          <span className="eyebrow-chip mb-6 md:mb-8">{data.eyebrow}</span>
+          <span className="eyebrow-chip mb-4 md:mb-6">{data.eyebrow}</span>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="text-h1 max-w-[22ch]">{data.title}</h2>
         </Reveal>
 
         {/* Description row + arrow controls aligned to the same baseline */}
-        <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
+        <div className="mt-4 md:mt-5 flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-10">
           <Reveal delay={0.2} className="flex-1">
             <p className="text-[1.05rem] md:text-[1.15rem] text-[var(--color-ink-graphite)] max-w-[60ch] leading-relaxed">
               {data.description}
@@ -239,7 +239,7 @@ export function WorkSection({ data }: { data: Work }) {
           padding-inline (clamp(1.25rem, 4vw, 3rem)) so the first card aligns
           with the title/description above. Vertical padding (py-3) gives the
           hover-lift somewhere to live without getting clipped by overflow. */}
-      <div className="relative mt-10 md:mt-14">
+      <div className="relative mt-6 md:mt-8">
         {/* Soft right-edge fade — hint that more content is to the right.
             Hidden when we've scrolled to the end. */}
         <div
@@ -289,8 +289,8 @@ export function WorkSection({ data }: { data: Work }) {
       </div>
 
       <Container>
-        <Reveal delay={0.2} className="mt-12 md:mt-16">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between border-t border-[var(--color-line)] pt-10">
+        <Reveal delay={0.2} className="mt-6 md:mt-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10 justify-between border-t border-[var(--color-line)] pt-6 md:pt-8">
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.15em] text-[var(--color-ink-graphite)] max-w-[44ch] leading-[1.5] inline-flex items-baseline gap-3">
               <span className="font-display text-[1.6rem] font-extrabold -tracking-[0.04em] text-[var(--color-ink-deep)] leading-none">
                 {data.items.length}

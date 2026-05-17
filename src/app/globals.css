@@ -228,6 +228,12 @@
     padding-block: clamp(96px, 12vw, 192px);
   }
 
+  /* Compact variant for sections that need to fit a viewport at-a-glance
+     (e.g. the Work carousel). About half the vertical air of the default. */
+  .section-compact {
+    padding-block: clamp(56px, 6vw, 96px);
+  }
+
   /* Hero: fills the first viewport. On mobile the layout collapses to a
      center-aligned column; on desktop title and CTAs anchor to top/bottom. */
   .hero-section {
@@ -551,17 +557,17 @@
     transition: transform 0.5s var(--ease-out-expo);
     display: flex;
     flex-direction: column;
-    height: 480px;
+    height: 380px;
   }
   .project-thumb {
     flex-shrink: 0;
-    height: 180px;
+    height: 140px;
     background: var(--color-cream-soft);
     border-bottom: 1px solid var(--color-ink-deep);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   .project-thumb-art {
     flex: 1;
