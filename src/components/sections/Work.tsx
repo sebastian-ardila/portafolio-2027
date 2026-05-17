@@ -15,8 +15,9 @@ function ProjectLogo({ p }: { p: Project }) {
         name={p.name}
         domain={p.domain}
         iconSrc={p.iconSrc}
-        size={112}
-        className="transition-transform duration-500 group-hover:scale-[1.04]"
+        size={96}
+        bare
+        className="grayscale opacity-60 transition-[filter,opacity,transform] duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.05]"
       />
       <p className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors leading-[1.3] line-clamp-2">
         {p.name}

@@ -8,6 +8,8 @@ type ProjectIconProps = {
   iconSrc?: string
   size?: number
   className?: string
+  /** Drop the bordered "badge" wrapper and render the favicon naked. */
+  bare?: boolean
 }
 
 function initialsFromName(name: string): string {
@@ -26,17 +28,26 @@ export function ProjectIcon({
   iconSrc,
   size = 48,
   className,
+  bare = false,
 }: ProjectIconProps) {
-  const imgSize = Math.round(size * 0.58)
+  // In bare mode let the favicon fill the wrapper instead of being inset.
+  const imgSize = Math.round(size * (bare ? 0.94 : 0.58))
   const initials = initialsFromName(name)
 
-  const wrapperStyle = {
-    width: size,
-    height: size,
-    minWidth: size,
-    minHeight: size,
-    borderRadius: Math.max(10, Math.round(size * 0.28)),
-  } as const
+  const wrapperStyle = bare
+    ? ({
+        width: size,
+        height: size,
+        minWidth: size,
+        minHeight: size,
+      } as const)
+    : ({
+        width: size,
+        height: size,
+        minWidth: size,
+        minHeight: size,
+        borderRadius: Math.max(10, Math.round(size * 0.28)),
+      } as const)
 
   const remoteIcon = domain
     ? `https://www.google.com/s2/favicons?sz=128&domain=${domain}`
@@ -48,7 +59,10 @@ export function ProjectIcon({
     <span
       aria-hidden
       className={cn(
-        'inline-flex items-center justify-center bg-[var(--color-cream)] border border-[var(--color-ink-deep)] overflow-hidden flex-shrink-0',
+        'inline-flex items-center justify-center overflow-hidden flex-shrink-0',
+        bare
+          ? null
+          : 'bg-[var(--color-cream)] border border-[var(--color-ink-deep)]',
         className
       )}
       style={wrapperStyle}
@@ -68,7 +82,10 @@ export function ProjectIcon({
       ) : (
         <span
           className="font-display font-extrabold text-[var(--color-ink-deep)] -tracking-[0.04em]"
-          style={{ fontSize: Math.round(size * 0.38), lineHeight: 1 }}
+          style={{
+            fontSize: Math.round(size * (bare ? 0.5 : 0.38)),
+            lineHeight: 1,
+          }}
         >
           {initials}
         </span>

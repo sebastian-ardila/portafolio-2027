@@ -109,7 +109,7 @@
     "items": [
       {
         "number": "01",
-        "name": "Clinity",
+        "name": "Clinity AI",
         "role": "Ingeniería & Estrategia",
         "summary": "Plataforma de salud que combina flujos clínicos con asistencia de IA. Contribuí a la base técnica y a la dirección de producto.",
         "stack": ["Next.js", "TypeScript", "Full Stack", "Arquitectura"],

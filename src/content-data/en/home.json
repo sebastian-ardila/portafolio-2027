@@ -109,7 +109,7 @@
     "items": [
       {
         "number": "01",
-        "name": "Clinity",
+        "name": "Clinity AI",
         "role": "Engineering & Strategy",
         "summary": "Healthcare platform combining clinical workflows and AI assistance. Contributed to the technical foundation and the product direction.",
         "stack": ["Next.js", "TypeScript", "Full Stack", "Architecture"],
