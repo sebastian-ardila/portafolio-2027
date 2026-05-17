@@ -17,44 +17,42 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
         : 'linear-gradient(135deg, var(--color-cream), var(--color-cream-soft))'
 
   const inner = (
-    <article className="project-card h-full transition-transform duration-500 group-hover:-translate-y-1">
+    <article className="project-card transition-transform duration-500 group-hover:-translate-y-1">
       <div className="project-thumb" style={{ background: bg }}>
-        <div className="absolute top-4 left-4">
-          <ProjectIcon
-            name={p.name}
-            domain={p.domain}
-            iconSrc={p.iconSrc}
-            size={52}
-          />
-        </div>
-        <div className="project-thumb-art text-[2rem] md:text-[2.5rem] whitespace-pre-line">
+        <ProjectIcon
+          name={p.name}
+          domain={p.domain}
+          iconSrc={p.iconSrc}
+          size={40}
+        />
+        <div className="project-thumb-art text-[1.4rem] md:text-[1.6rem] whitespace-pre-line">
           <span className="leading-[0.95] -tracking-[0.04em]">
             {p.art ?? p.name}
           </span>
         </div>
       </div>
-      <div className="p-6 md:p-8 flex flex-col gap-4 flex-1">
+      <div className="p-5 md:p-6 flex flex-col gap-3 flex-1 min-h-0">
         <div className="flex items-baseline justify-between gap-3 text-[var(--color-ink-muted)]">
-          <span className="font-mono text-[0.72rem] uppercase tracking-[0.15em]">
+          <span className="font-mono text-[0.7rem] uppercase tracking-[0.15em]">
             {p.number}
           </span>
           {p.year && (
-            <span className="font-mono text-[0.72rem] uppercase tracking-[0.15em]">
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.15em]">
               {p.year}
             </span>
           )}
         </div>
-        <h3 className="font-display text-[1.6rem] md:text-[1.85rem] font-extrabold -tracking-[0.02em] leading-[1.05] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors duration-500">
+        <h3 className="font-display text-[1.35rem] md:text-[1.5rem] font-extrabold -tracking-[0.02em] leading-[1.05] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors duration-500 line-clamp-2">
           {p.name}
         </h3>
-        <p className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)]">
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)] line-clamp-1">
           {p.role}
         </p>
-        <p className="text-[var(--color-ink-graphite)] text-[0.95rem] leading-relaxed">
+        <p className="text-[var(--color-ink-graphite)] text-[0.92rem] leading-[1.5] line-clamp-3 flex-1 min-h-0">
           {p.summary}
         </p>
         {p.url && (
-          <span className="mt-auto pt-4 font-mono text-[0.72rem] uppercase tracking-[0.15em] text-[var(--color-ink-deep)] inline-flex items-center gap-2">
+          <span className="mt-auto pt-1 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-deep)] inline-flex items-center gap-2">
             Visit
             <Icon
               name="arrow-up-right"
@@ -271,7 +269,7 @@ export function WorkSection({ data }: { data: Work }) {
             <div
               key={p.number}
               data-card
-              className="snap-start shrink-0 w-[62vw] sm:w-[42vw] md:w-[30vw] lg:w-[19vw] max-w-[280px]"
+              className="snap-start shrink-0 w-[62vw] sm:w-[42vw] md:w-[30vw] lg:w-[20vw] max-w-[300px]"
             >
               <Reveal delay={0.03 * Math.min(idx, 6)}>
                 <ProjectCard p={p} idx={idx} />
