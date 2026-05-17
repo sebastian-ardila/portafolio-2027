@@ -1,11 +1,12 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Container } from '@/components/primitives/Container'
 import { Card } from '@/components/primitives/Card'
 import { Reveal } from '@/components/motion/Reveal'
 import type { Kaizen } from '@/content/schema'
 
-// Per-pillar hover-reveal illustration. `from` controls which edge the
-// image slides in from when the card is hovered/focused.
 type PillarImage = {
   src: string
   from: 'right' | 'top' | 'left' | 'top-right'
@@ -17,39 +18,82 @@ const pillarImages: (PillarImage | null)[] = [
   { src: '/images/compound.webp', from: 'top-right' },
 ]
 
-// Tailwind class fragments per direction so the off-card initial state
-// and the centered-on-edge final position match what was requested.
-const fromClasses = {
-  right: {
-    base: 'top-0 right-0 object-right-top',
-    initial: 'translate-x-[110%] opacity-0',
-    final:
-      'group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100',
-  },
-  top: {
-    base: 'top-0 left-1/2 -translate-x-1/2 object-top',
-    initial: '-translate-y-[110%] opacity-0',
-    final:
-      'group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100',
-  },
-  left: {
-    base: 'top-0 left-0 object-left-top',
-    initial: '-translate-x-[110%] opacity-0',
-    final:
-      'group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100',
-  },
-  'top-right': {
-    base: 'top-0 right-0 object-right-top',
-    initial: 'translate-x-[110%] -translate-y-[110%] opacity-0',
-    final:
-      'group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:translate-y-0 group-focus-within:opacity-100',
-  },
+// Static positioning per direction (anchors to the matching edge of the card).
+const baseClasses = {
+  right: 'top-0 right-0 object-right-top',
+  top: 'top-0 left-1/2 -translate-x-1/2 object-top',
+  left: 'top-0 left-0 object-left-top',
+  'top-right': 'top-0 right-0 object-right-top',
 } as const
 
+// Hidden state: image parked off the matching edge with opacity 0.
+const initialClasses = {
+  right: 'translate-x-[110%] opacity-0',
+  top: '-translate-y-[110%] opacity-0',
+  left: '-translate-x-[110%] opacity-0',
+  'top-right': 'translate-x-[110%] -translate-y-[110%] opacity-0',
+} as const
+
+// Revealed state — same target the hover variant lands on. The translate-x for
+// the `top` direction stays untouched so the centered offset (-translate-x-1/2)
+// from baseClasses is preserved.
+const revealedClasses = {
+  right: 'translate-x-0 opacity-100',
+  top: 'translate-y-0 opacity-100',
+  left: 'translate-x-0 opacity-100',
+  'top-right': 'translate-x-0 translate-y-0 opacity-100',
+} as const
+
+// Hover/focus reveal (kept so cards still respond to hover after the auto-peek).
+const hoverClasses = {
+  right:
+    'group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100',
+  top: 'group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100',
+  left: 'group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100',
+  'top-right':
+    'group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:translate-y-0 group-focus-within:opacity-100',
+} as const
+
+const AUTO_PEEK_MS = 3000
+
 export function KaizenFramework({ data }: { data: Kaizen }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const hasFiredRef = useRef(false)
+  const [revealed, setRevealed] = useState(false)
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+
+    let hideTimer: ReturnType<typeof setTimeout> | undefined
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !hasFiredRef.current) {
+            hasFiredRef.current = true
+            setRevealed(true)
+            hideTimer = setTimeout(() => setRevealed(false), AUTO_PEEK_MS)
+            observer.disconnect()
+            return
+          }
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    observer.observe(node)
+
+    return () => {
+      observer.disconnect()
+      if (hideTimer) clearTimeout(hideTimer)
+    }
+  }, [])
+
   return (
     <section
       id="framework"
+      ref={sectionRef}
       className="section section-stack section-soft"
     >
       <Container>
@@ -63,7 +107,6 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
         <div className="mt-20 md:mt-28 grid grid-cols-12 gap-6 md:gap-8 items-stretch">
           {data.pillars.map((pillar, idx) => {
             const image = pillarImages[idx]
-            const variant = image ? fromClasses[image.from] : null
             return (
               <Reveal
                 key={pillar.number}
@@ -71,13 +114,13 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
                 className="col-span-12 md:col-span-4 flex"
               >
                 <Card className="h-full w-full flex flex-col group cursor-default overflow-hidden">
-                  {image && variant && (
+                  {image && (
                     <Image
                       src={image.src}
                       alt=""
                       width={600}
                       height={600}
-                      className={`pointer-events-none select-none absolute w-36 h-36 md:w-48 md:h-48 object-contain z-[1] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${variant.base} ${variant.initial} ${variant.final}`}
+                      className={`pointer-events-none select-none absolute w-36 h-36 md:w-48 md:h-48 object-contain z-[1] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${baseClasses[image.from]} ${revealed ? revealedClasses[image.from] : initialClasses[image.from]} ${hoverClasses[image.from]}`}
                     />
                   )}
                   <div className="relative z-[2] font-display text-[2.6rem] md:text-[3.4rem] leading-none font-extrabold text-[var(--color-ink-deep)] -tracking-[0.04em]">
