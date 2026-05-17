@@ -239,17 +239,14 @@ export function WorkSection({ data }: { data: Work }) {
 
       {/* Carousel scroller — inline padding mirrors the Container's
           padding-inline (clamp(1.25rem, 4vw, 3rem)) so the first card aligns
-          with the title/description above. scroll-padding-inline keeps the
-          snap point on the same edge so arrow-clicks land cards flush. */}
-      <div
-        className="relative mt-10 md:mt-14"
-        data-progress={progress}
-      >
+          with the title/description above. Vertical padding (py-3) gives the
+          hover-lift somewhere to live without getting clipped by overflow. */}
+      <div className="relative mt-10 md:mt-14">
         {/* Soft right-edge fade — hint that more content is to the right.
             Hidden when we've scrolled to the end. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-0 right-0 bottom-4 w-12 md:w-20 z-[1] transition-opacity duration-300"
+          className="pointer-events-none absolute top-0 right-0 bottom-0 w-12 md:w-20 z-[1] transition-opacity duration-300"
           style={{
             opacity: canNext ? 1 : 0,
             background:
@@ -268,13 +265,13 @@ export function WorkSection({ data }: { data: Work }) {
           onPointerCancel={onPointerUp}
           onClickCapture={onClickCapture}
           onKeyDown={onKeyDown}
-          className="work-scroller flex gap-6 md:gap-8 overflow-x-auto snap-x snap-proximity pb-4 cursor-grab active:cursor-grabbing focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-paper)] rounded-[4px] px-[clamp(1.25rem,4vw,3rem)] [scroll-padding-inline:clamp(1.25rem,4vw,3rem)]"
+          className="work-scroller flex gap-6 md:gap-8 snap-x snap-proximity py-3 cursor-grab active:cursor-grabbing focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-paper)] rounded-[4px] px-[clamp(1.25rem,4vw,3rem)] [scroll-padding-inline:clamp(1.25rem,4vw,3rem)]"
         >
           {data.items.map((p, idx) => (
             <div
               key={p.number}
               data-card
-              className="snap-start shrink-0 w-[74vw] sm:w-[52vw] md:w-[38vw] lg:w-[26vw] max-w-[360px]"
+              className="snap-start shrink-0 w-[62vw] sm:w-[42vw] md:w-[30vw] lg:w-[19vw] max-w-[280px]"
             >
               <Reveal delay={0.03 * Math.min(idx, 6)}>
                 <ProjectCard p={p} idx={idx} />
@@ -283,13 +280,11 @@ export function WorkSection({ data }: { data: Work }) {
           ))}
         </div>
 
-        {/* Progress bar — non-interactive, just a visual cue of position. */}
+        {/* Progress bar — non-interactive visual cue of scroll position. */}
         <div className="mt-4 mx-[clamp(1.25rem,4vw,3rem)] h-[2px] bg-[var(--color-line)] rounded-full overflow-hidden">
           <div
             className="h-full bg-[var(--color-ink-deep)] origin-left transition-[transform] duration-150 ease-out"
-            style={{
-              transform: `scaleX(${Math.max(0.08, progress)})`,
-            }}
+            style={{ transform: `scaleX(${Math.max(0.08, progress)})` }}
             aria-hidden
           />
         </div>

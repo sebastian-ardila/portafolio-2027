@@ -649,13 +649,25 @@
   }
 
   /* Horizontal carousel for the Work section. Hides the native scrollbar
-     and lets touch / wheel drive horizontal swipes. */
+     across browsers and uses overflow-clip on the Y axis with a generous
+     clip margin so card hover-lifts (translate-y) aren't sliced off by the
+     scroller's bounds. */
   .work-scroller {
+    overflow-x: scroll;
+    overflow-y: clip;
+    overflow-clip-margin: 24px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-behavior: smooth;
+    touch-action: pan-x;
   }
   .work-scroller::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .work-scroller::-webkit-scrollbar-track,
+  .work-scroller::-webkit-scrollbar-thumb {
     display: none;
   }
 
