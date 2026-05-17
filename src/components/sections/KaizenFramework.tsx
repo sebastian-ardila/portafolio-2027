@@ -58,24 +58,25 @@ const AUTO_PEEK_MS = 3000
 
 export function KaizenFramework({ data }: { data: Kaizen }) {
   const sectionRef = useRef<HTMLElement>(null)
-  const hasFiredRef = useRef(false)
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  )
   const [revealed, setRevealed] = useState(false)
 
   useEffect(() => {
     const node = sectionRef.current
     if (!node) return
 
-    let hideTimer: ReturnType<typeof setTimeout> | undefined
-
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting && !hasFiredRef.current) {
-            hasFiredRef.current = true
+          if (entry.isIntersecting) {
+            if (hideTimerRef.current) clearTimeout(hideTimerRef.current)
             setRevealed(true)
-            hideTimer = setTimeout(() => setRevealed(false), AUTO_PEEK_MS)
-            observer.disconnect()
-            return
+            hideTimerRef.current = setTimeout(
+              () => setRevealed(false),
+              AUTO_PEEK_MS
+            )
           }
         }
       },
@@ -86,7 +87,7 @@ export function KaizenFramework({ data }: { data: Kaizen }) {
 
     return () => {
       observer.disconnect()
-      if (hideTimer) clearTimeout(hideTimer)
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current)
     }
   }, [])
 
