@@ -686,7 +686,7 @@
     display: flex;
     width: max-content;
     gap: clamp(1.5rem, 3vw, 3rem);
-    animation: logo-marquee-scroll 50s linear infinite;
+    animation: logo-marquee-scroll 40s linear infinite;
     will-change: transform;
   }
   .logo-marquee:hover .logo-marquee-track,
