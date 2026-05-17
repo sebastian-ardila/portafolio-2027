@@ -34,7 +34,7 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
       </a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 pt-3 md:pt-5 transition-[backdrop-filter,background] duration-500 pointer-events-none ${
+        className={`fixed top-0 left-0 right-0 z-50 py-3 md:py-5 transition-[backdrop-filter,background] duration-500 pointer-events-none ${
           scrolled ? 'backdrop-blur-md' : ''
         }`}
       >

@@ -23,9 +23,9 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
           name={p.name}
           domain={p.domain}
           iconSrc={p.iconSrc}
-          size={40}
+          size={48}
         />
-        <div className="project-thumb-art text-[1.4rem] md:text-[1.6rem] whitespace-pre-line">
+        <div className="project-thumb-art text-[1.7rem] md:text-[2rem] whitespace-pre-line">
           <span className="leading-[0.95] -tracking-[0.04em]">
             {p.art ?? p.name}
           </span>
@@ -42,7 +42,7 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
             </span>
           )}
         </div>
-        <h3 className="font-display text-[1.35rem] md:text-[1.5rem] font-extrabold -tracking-[0.02em] leading-[1.05] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors duration-500 line-clamp-2">
+        <h3 className="font-display text-[1.55rem] md:text-[1.75rem] font-extrabold -tracking-[0.02em] leading-[1.05] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors duration-500 line-clamp-2">
           {p.name}
         </h3>
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)] line-clamp-1">
