@@ -76,14 +76,14 @@
       },
       {
         "number": "02",
-        "title": "Modernización de sistemas legados",
+        "title": "Modernización de sistemas legacy",
         "description": "Migraciones por patrón strangler. Tu sistema viejo sigue vivo mientras un reemplazo tipado, testeado y modular crece a su alrededor. Sin reescrituras big-bang.",
         "stack": ["TypeScript", "React", "Node", "Docker"]
       },
       {
         "number": "03",
-        "title": "Liderazgo técnico fraccional",
-        "description": "Contratación, roadmaps técnicos, cultura de code review, disciplina de on-call. Para fundadores con product-market fit y sin ingeniero senior que ancle al equipo.",
+        "title": "Liderazgo técnico fractional",
+        "description": "Hiring, roadmaps técnicos, cultura de code review, disciplina de on-call. Para fundadores con product-market fit y sin ingeniero senior que ancle al equipo.",
         "stack": ["Estrategia", "Hiring", "Arquitectura"]
       },
       {
@@ -160,7 +160,7 @@
         "number": "06",
         "name": "Café Los Grisales",
         "role": "Ingeniería · Marca",
-        "summary": "Sitio para una cafetería local en Pereira. Identidad de marca traducida a una presencia web rápida y centrada en el contenido: menú, historia y contacto. Código abierto.",
+        "summary": "Sitio para una cafetería local en Pereira. Identidad de marca traducida a una presencia web rápida y centrada en el contenido: menú, historia y contacto. Open source.",
         "stack": ["Next.js", "React", "TypeScript", "Marca"],
         "url": "https://cafelosgrisales.com",
         "domain": "cafelosgrisales.com",
