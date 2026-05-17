@@ -1,11 +1,12 @@
+'use client'
+
+import { useRef } from 'react'
 import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
 import { Icon } from '@/components/primitives/Icon'
 import { ProjectIcon } from '@/components/primitives/ProjectIcon'
 import { Reveal } from '@/components/motion/Reveal'
 import type { Work, Project } from '@/content/schema'
-
-const FEATURED_COUNT = 3
 
 function ProjectCard({ p, idx }: { p: Project; idx: number }) {
   const bg =
@@ -83,8 +84,17 @@ function ProjectCard({ p, idx }: { p: Project; idx: number }) {
 }
 
 export function WorkSection({ data }: { data: Work }) {
-  const featured = data.items.slice(0, FEATURED_COUNT)
-  const remaining = Math.max(0, data.items.length - FEATURED_COUNT)
+  const scrollerRef = useRef<HTMLDivElement>(null)
+
+  const scrollByCard = (dir: 1 | -1) => {
+    const scroller = scrollerRef.current
+    if (!scroller) return
+    const firstCard = scroller.querySelector(
+      '[data-card]'
+    ) as HTMLElement | null
+    const step = firstCard ? firstCard.offsetWidth + 24 : scroller.clientWidth
+    scroller.scrollBy({ left: dir * step, behavior: 'smooth' })
+  }
 
   return (
     <section id="work" className="section-flow section-paper">
@@ -100,21 +110,50 @@ export function WorkSection({ data }: { data: Work }) {
             {data.description}
           </p>
         </Reveal>
+      </Container>
 
-        <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {featured.map((p, idx) => (
-            <Reveal key={p.number} delay={0.06 * idx}>
-              <ProjectCard p={p} idx={idx} />
-            </Reveal>
+      {/* Carousel — bleeds to viewport edges so the next card peeks past the
+          container's right padding, hinting that there is more to scroll. */}
+      <div className="mt-16 md:mt-24">
+        <div
+          ref={scrollerRef}
+          className="work-scroller flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-4"
+        >
+          {data.items.map((p, idx) => (
+            <div
+              key={p.number}
+              data-card
+              className="snap-start shrink-0 first:ml-[clamp(1.25rem,4vw,3rem)] last:mr-[clamp(1.25rem,4vw,3rem)] w-[78vw] sm:w-[58vw] md:w-[42vw] lg:w-[31vw] max-w-[440px]"
+            >
+              <Reveal delay={0.03 * Math.min(idx, 6)}>
+                <ProjectCard p={p} idx={idx} />
+              </Reveal>
+            </div>
           ))}
         </div>
+      </div>
 
-        <Reveal delay={0.2} className="mt-14 md:mt-20">
+      <Container>
+        <Reveal delay={0.2} className="mt-10 md:mt-14">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 justify-between border-t border-[var(--color-line)] pt-10">
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.15em] text-[var(--color-ink-graphite)] max-w-[44ch] leading-[1.5]">
-              <span className="text-[var(--color-ink-deep)]">+{remaining}</span>{' '}
-              {data.archiveTeaser}
-            </p>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Anterior"
+                onClick={() => scrollByCard(-1)}
+                className="carousel-nav"
+              >
+                <Icon name="arrow-right" size={16} className="rotate-180" />
+              </button>
+              <button
+                type="button"
+                aria-label="Siguiente"
+                onClick={() => scrollByCard(1)}
+                className="carousel-nav"
+              >
+                <Icon name="arrow-right" size={16} />
+              </button>
+            </div>
             <Button
               href={data.viewAllHref}
               variant="mustard"
