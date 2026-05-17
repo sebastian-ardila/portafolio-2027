@@ -561,7 +561,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.5rem;
   }
   .project-thumb-art {
     flex: 1;
@@ -684,6 +684,7 @@
     border: 1px solid var(--color-line-strong);
     background: var(--color-cream);
     color: var(--color-ink-deep);
+    cursor: pointer;
     transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
   }
   .carousel-nav:hover {
