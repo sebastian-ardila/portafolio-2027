@@ -682,6 +682,15 @@
     outline: none;
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-coral) 35%, transparent);
   }
+  .carousel-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .carousel-nav:disabled:hover {
+    background: var(--color-cream);
+    color: var(--color-ink-deep);
+    border-color: var(--color-line-strong);
+  }
 }
 
 @layer utilities {
