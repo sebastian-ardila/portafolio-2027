@@ -167,6 +167,18 @@
       },
       {
         "number": "06",
+        "name": "Mudanti",
+        "role": "Engineering · Product",
+        "summary": "Multi-tenant SaaS for moving companies. Public web for acquisition and a super-admin CMS for operations — from local site to product.",
+        "stack": ["Next.js", "TypeScript", "Supabase", "Multi-tenant"],
+        "url": "https://mudanti.com",
+        "domain": "mudanti.com",
+        "year": "2026",
+        "art": "Mudanti",
+        "iconSrc": "/images/projects/mudanti.webp"
+      },
+      {
+        "number": "07",
         "name": "Café Los Grisales",
         "role": "Engineering · Brand",
         "summary": "Site for a local coffee shop in Pereira. Brand identity translated into a fast, content-first web presence with menu, story and contact. Open source.",
@@ -178,7 +190,7 @@
         "repo": "https://github.com/sebastian-ardila/los-grisales"
       },
       {
-        "number": "07",
+        "number": "08",
         "name": "Café Independencia",
         "role": "Engineering · UX Design",
         "summary": "Coffee brand site with editorial care. Quiet typography, responsive layout, content-first hierarchy.",
@@ -188,7 +200,7 @@
         "art": "Café\nIndependencia"
       },
       {
-        "number": "08",
+        "number": "09",
         "name": "Casa de Asterión",
         "role": "Engineering · Editorial UX",
         "summary": "Editorial site for an independent publishing house. Custom content model, content-first information architecture.",
@@ -200,7 +212,7 @@
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
-        "number": "09",
+        "number": "10",
         "name": "Pirogramei",
         "role": "Engineering · Accessibility",
         "summary": "Static site for a community programming group. Built with Astro for instant loads, deployed to GitHub Pages, accessibility-first.",
@@ -209,7 +221,7 @@
         "art": "Pirogramei"
       },
       {
-        "number": "10",
+        "number": "11",
         "name": "CS Pereira",
         "role": "Engineering · Community",
         "summary": "Local CS community site. Hand-coded, lightweight, focused on legibility and shareability. A small project with a clear job.",
@@ -218,7 +230,7 @@
         "art": "CS\nPereira"
       },
       {
-        "number": "11",
+        "number": "12",
         "name": "PL/0 Compiler",
         "role": "Engineering · Compilers",
         "summary": "Compiler for the PL/0 language built in Python. Lexer, parser and code generator. A weekend project for the love of the craft.",

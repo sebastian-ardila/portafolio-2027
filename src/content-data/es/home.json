@@ -167,6 +167,18 @@
       },
       {
         "number": "06",
+        "name": "Mudanti",
+        "role": "Ingeniería · Producto",
+        "summary": "SaaS multi-tenant para empresas de mudanzas. Web pública para captación y CMS de super admin para operaciones — del sitio local al producto.",
+        "stack": ["Next.js", "TypeScript", "Supabase", "Multi-tenant"],
+        "url": "https://mudanti.com",
+        "domain": "mudanti.com",
+        "year": "2026",
+        "art": "Mudanti",
+        "iconSrc": "/images/projects/mudanti.webp"
+      },
+      {
+        "number": "07",
         "name": "Café Los Grisales",
         "role": "Ingeniería · Marca",
         "summary": "Sitio para una cafetería local en Pereira. Identidad de marca traducida a una presencia web rápida y centrada en el contenido: menú, historia y contacto. Open source.",
@@ -178,7 +190,7 @@
         "repo": "https://github.com/sebastian-ardila/los-grisales"
       },
       {
-        "number": "07",
+        "number": "08",
         "name": "Café Independencia",
         "role": "Ingeniería · Diseño UX",
         "summary": "Sitio de marca de café con cuidado editorial. Tipografía calma, layout responsivo, jerarquía centrada en el contenido.",
@@ -188,7 +200,7 @@
         "art": "Café\nIndependencia"
       },
       {
-        "number": "08",
+        "number": "09",
         "name": "Casa de Asterión",
         "role": "Ingeniería · UX Editorial",
         "summary": "Sitio editorial para una editorial independiente. Modelo de contenido a medida y arquitectura de información centrada en el contenido.",
@@ -200,7 +212,7 @@
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
-        "number": "09",
+        "number": "10",
         "name": "Pirogramei",
         "role": "Ingeniería · Accesibilidad",
         "summary": "Sitio estático para un grupo comunitario de programación. Construido con Astro para cargas instantáneas, desplegado en GitHub Pages, accesibilidad primero.",
@@ -209,7 +221,7 @@
         "art": "Pirogramei"
       },
       {
-        "number": "10",
+        "number": "11",
         "name": "CS Pereira",
         "role": "Ingeniería · Comunidad",
         "summary": "Sitio para la comunidad local de Computer Science. Codificado a mano, liviano, enfocado en legibilidad y facilidad de compartir.",
@@ -218,7 +230,7 @@
         "art": "CS\nPereira"
       },
       {
-        "number": "11",
+        "number": "12",
         "name": "Compilador PL/0",
         "role": "Ingeniería · Compiladores",
         "summary": "Compilador para el lenguaje PL/0 construido en Python. Lexer, parser y generador de código. Un proyecto de fin de semana por amor al oficio.",

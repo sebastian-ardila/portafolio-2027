@@ -17,18 +17,18 @@ export function Hero({ data }: { data: HeroData }) {
       <Container className="relative z-[2]">
         {/* Top block: title (left on desktop, top on mobile) +
             video + LinkedIn/Me button (right on desktop, below title on mobile). */}
-        <div className="flex-1 flex flex-col justify-between gap-6 md:justify-start md:gap-10 md:grid md:grid-cols-12 md:items-center">
+        <div className="flex-1 flex flex-col justify-center gap-6 md:justify-start md:gap-10 md:grid md:grid-cols-12 md:items-center">
           <div className="md:col-span-6">
             <Reveal mode="mount" delay={0.1}>
               <h1 className="hero-title">{data.title}</h1>
             </Reveal>
           </div>
 
-          <div className="md:col-span-6 flex flex-col items-center md:items-end">
+          <div className="md:col-span-6 flex flex-col items-center justify-center h-full">
             <Reveal
               mode="mount"
               delay={0.3}
-              className="w-full max-w-[440px] md:max-w-[600px]"
+              className="w-full max-w-[360px] md:max-w-[480px]"
             >
               <video
                 src="/videos/saludando.webm"
