@@ -52,12 +52,22 @@ export function HeroVideo({
         navigator.maxTouchPoints > 1)
 
     if (isIOS) {
-      // iOS Safari claims VP9-in-WebM support but its autoplay path stalls
-      // on it — the user sees a paused first frame with a media-error play
-      // overlay. Swap to an opaque H.264 MP4 fallback (encoded with the
-      // green chromakey background still visible). Trade-off: iOS users
-      // see a green rectangle behind the character, but the video at
-      // least plays.
+      // iOS Safari (and Chrome iOS, which is the same WebKit engine) claims
+      // VP9-in-WebM support but its autoplay path stalls on it — the user
+      // sees a paused first frame with a media-error play overlay. Force a
+      // clean swap to the H.264 MP4 fallback:
+      //   1. drop the SSR <source> children so iOS can't already be
+      //      mid-load on the unplayable webm
+      //   2. set src + the autoplay-related properties (iOS attaches
+      //      meaning to property writes more reliably than attributes
+      //      in the React tree)
+      //   3. v.load() to restart source selection
+      //   4. v.play() catches whatever load() returns
+      while (v.firstChild) v.removeChild(v.firstChild)
+      v.muted = true
+      v.playsInline = true
+      v.loop = true
+      v.autoplay = true
       v.src = '/videos/saludando-ios.mp4'
       v.load()
     }
