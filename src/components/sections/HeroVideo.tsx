@@ -39,6 +39,29 @@ export function HeroVideo({
     const v = ref.current
     if (!v) return
 
+    // iOS / iPadOS detection. Chrome iOS uses WebKit under the hood so this
+    // catches it too. iPadOS 13+ reports `MacIntel` so we also check for a
+    // touch-screen Mac platform.
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
+    const platform =
+      typeof navigator !== 'undefined' ? navigator.platform : ''
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (platform === 'MacIntel' &&
+        typeof navigator !== 'undefined' &&
+        navigator.maxTouchPoints > 1)
+
+    if (isIOS) {
+      // iOS Safari claims VP9-in-WebM support but its autoplay path stalls
+      // on it — the user sees a paused first frame with a media-error play
+      // overlay. Swap to an opaque H.264 MP4 fallback (encoded with the
+      // green chromakey background still visible). Trade-off: iOS users
+      // see a green rectangle behind the character, but the video at
+      // least plays.
+      v.src = '/videos/saludando-ios.mp4'
+      v.load()
+    }
+
     const tryPlay = () => {
       const p = v.play()
       // iOS rejects play() if the gesture context isn't right. Ignore — it
