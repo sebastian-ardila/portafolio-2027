@@ -506,6 +506,21 @@
     font-size: 0.875rem;
   }
 
+  /* On mobile inside the hero, the lg buttons share the row with the small
+     video on the right, so we shrink them down so two stacked pills fit
+     in their 7-col slot without wrapping or pushing the video out. */
+  @media (max-width: 767px) {
+    .hero-ctas .btn-pill-lg .btn-pill-content {
+      padding: 0.85rem 1.3rem;
+      font-size: 0.75rem;
+    }
+    .hero-ctas .btn-pill-content {
+      padding: 0.7rem 1.1rem;
+      font-size: 0.72rem;
+      gap: 0.45rem;
+    }
+  }
+
   /* Two pills joined as one segmented button. The left half flattens its
      right edge and drops its right border (so the right half's left
      border serves as the divider between them). */
