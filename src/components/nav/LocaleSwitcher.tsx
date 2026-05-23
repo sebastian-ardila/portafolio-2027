@@ -14,50 +14,42 @@ export function LocaleSwitcher() {
 
   const change = (next: Locale) => {
     if (next === locale) return
-    // Persist the choice so the bare-path redirect scripts (see
-    // scripts/write-root-redirect.mjs) and any future visit land on the
-    // same locale without re-running browser-language detection.
     try {
       document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
       localStorage.setItem('NEXT_LOCALE', next)
     } catch {
-      /* ignore (private mode etc.) */
+      /* private mode etc. */
     }
     startTransition(() => {
-      // scroll: false keeps the user exactly where they were. Without it
-      // Next.js auto-scrolls to top on every route change, which makes
-      // switching locale feel like a full navigation rather than a copy
-      // swap.
       router.replace(pathname, { locale: next, scroll: false })
     })
   }
 
   return (
-    <span className="inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.1em]">
-      {routing.locales.map((l, i) => (
-        <span key={l} className="flex items-center gap-1">
+    <div
+      role="group"
+      aria-label="Idioma / Language"
+      className="locale-switch"
+    >
+      {routing.locales.map((l) => {
+        const active = l === locale
+        return (
           <button
+            key={l}
             type="button"
             onClick={() => change(l)}
-            disabled={isPending}
+            disabled={isPending || active}
+            aria-pressed={active}
             aria-label={l === 'en' ? 'English' : 'Español'}
             className={cn(
-              'cursor-pointer transition-opacity duration-300 focus:outline-none disabled:cursor-wait',
-              locale === l
-                ? 'font-semibold opacity-100'
-                : 'opacity-50 hover:opacity-100'
+              'locale-switch-segment',
+              active && 'locale-switch-segment-active'
             )}
-            style={{ color: 'currentColor' }}
           >
             {l.toUpperCase()}
           </button>
-          {i < routing.locales.length - 1 && (
-            <span className="opacity-30" style={{ color: 'currentColor' }}>
-              /
-            </span>
-          )}
-        </span>
-      ))}
-    </span>
+        )
+      })}
+    </div>
   )
 }
