@@ -1,98 +1,72 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 
 /**
- * Auto-playing hero video that's stubborn about staying playing AND about
- * picking the right source per device.
+ * Hero animation that has to look the same on every device.
  *
- * Why the source is set from JS only:
- *   iOS Safari (and Chrome iOS, same WebKit engine) claims VP9-in-WebM
- *   support but its autoplay path stalls on it — the user sees a paused
- *   first frame with a media-error play overlay. Letting iOS start loading
- *   the WebM via an SSR <source> tag and then trying to swap it via JS
- *   wasn't enough; the player stays stuck. We render <video> with no
- *   children at all and JS picks the right source on mount:
- *     - iOS  →  /videos/saludando-ios.mp4  (H.264, opaque, autoplay-OK)
- *     - else →  /videos/saludando.webm     (VP9 + alpha, transparent)
+ * The clip exists in two formats because no single one works everywhere:
  *
- * Why a recovery loop:
- *   iOS pauses videos when the tab loses focus, when Low Power Mode is
- *   on, when the video scrolls out of view (battery heuristic), and
- *   sometimes for no clear reason. This component forces play() on every
- *   recovery hook (mount, intersection back-in-view, visibilitychange
- *   back to visible, and any spontaneous `pause` event).
+ *   - /videos/saludando.webm  — VP9 + alpha. Chrome, Firefox, Edge, Safari
+ *                              on macOS all decode the alpha and autoplay
+ *                              cleanly. iOS Safari (and Chrome iOS, which
+ *                              is the same WebKit) decodes it OPAQUE,
+ *                              shows the green chromakey backdrop, and its
+ *                              autoplay path stalls on top of that.
+ *   - /videos/saludando.webp  — Animated WebP with real alpha. iOS Safari
+ *                              renders it transparently and animates it
+ *                              automatically because it's an <img>; the
+ *                              `<video>` autoplay rules don't apply.
+ *
+ * The component renders nothing until hydration, then picks ONE element
+ * based on UA detection: <img> for iOS, <video> for everything else. No
+ * source juggling, no .src reassignments, no retry loops.
  */
 export function HeroVideo({ className }: { className?: string }) {
-  const ref = useRef<HTMLVideoElement>(null)
+  // 'pending' = pre-hydration / server. Render an invisible placeholder
+  // with the same 1:1 aspect so the layout doesn't jump when we swap in
+  // the real element.
+  const [variant, setVariant] = useState<'pending' | 'img' | 'video'>(
+    'pending'
+  )
 
   useEffect(() => {
-    const v = ref.current
-    if (!v) return
-
-    // Detect iOS / iPadOS. Chrome iOS uses WebKit so we get it too.
-    // iPadOS 13+ reports `MacIntel` with a touch screen.
     const ua = navigator.userAgent
     const isIOS =
       /iPad|iPhone|iPod/.test(ua) ||
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-
-    // Set the autoplay-related properties directly on the element. iOS
-    // honours property writes more reliably than the JSX-rendered
-    // attributes after hydration.
-    v.muted = true
-    v.playsInline = true
-    v.loop = true
-    v.autoplay = true
-    v.src = isIOS
-      ? '/videos/saludando-ios.mp4'
-      : '/videos/saludando.webm'
-    v.load()
-
-    const tryPlay = () => {
-      const p = v.play()
-      // iOS rejects play() if the gesture context isn't right. Ignore —
-      // the next visibility / intersection event will retry.
-      if (p && typeof p.catch === 'function') p.catch(() => {})
-    }
-
-    const onPause = () => {
-      if (!v.ended) tryPlay()
-    }
-    const onVisibility = () => {
-      if (!document.hidden) tryPlay()
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting && v.paused) tryPlay()
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    v.addEventListener('pause', onPause)
-    document.addEventListener('visibilitychange', onVisibility)
-    io.observe(v)
-
-    tryPlay()
-
-    return () => {
-      v.removeEventListener('pause', onPause)
-      document.removeEventListener('visibilitychange', onVisibility)
-      io.disconnect()
-    }
+    setVariant(isIOS ? 'img' : 'video')
   }, [])
+
+  if (variant === 'pending') {
+    return (
+      <div
+        aria-hidden
+        className={className}
+        style={{ aspectRatio: '1 / 1' }}
+      />
+    )
+  }
+
+  if (variant === 'img') {
+    return (
+      <img
+        src="/videos/saludando.webp"
+        alt=""
+        aria-hidden
+        className={className}
+      />
+    )
+  }
 
   return (
     <video
-      ref={ref}
+      src="/videos/saludando.webm"
       autoPlay
       muted
       loop
       playsInline
-      // Older iOS attribute name; React passes unknown lowercase HTML attrs
-      // straight through to the DOM.
+      // Older iOS attribute name; harmless on other engines.
       webkit-playsinline=""
       preload="auto"
       disablePictureInPicture
