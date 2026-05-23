@@ -685,7 +685,11 @@
   .logo-marquee-track {
     display: flex;
     width: max-content;
-    gap: clamp(1.5rem, 3vw, 3rem);
+    /* No CSS gap: gap is applied as margin-right on each item so the track's
+       total width = 2N × (item + spacing) exactly. With CSS gap, the trailing
+       gap is missing from the total width but present between items 1..N
+       inside the track, which makes translateX(-50%) land 0.5*gap short of
+       the duplicate-half's start and produces a visible snap each loop. */
     animation: logo-marquee-scroll 40s linear infinite;
     will-change: transform;
   }
@@ -696,14 +700,18 @@
   .logo-marquee-item {
     flex-shrink: 0;
     width: clamp(140px, 14vw, 180px);
+    margin-right: clamp(1.5rem, 3vw, 3rem);
   }
   @keyframes logo-marquee-scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      /* -50% lands on the start of the duplicated half. */
-      transform: translateX(-50%);
+      /* --marquee-distance is set in JS by LogoMarquee.tsx to the exact
+         sum of widths + margins of the first half of items, so the snap
+         lands pixel-perfect on the duplicate's first item. Fallback to
+         -50% if JS hasn't measured yet (SSR / first paint). */
+      transform: translateX(calc(-1 * var(--marquee-distance, 50%)));
     }
   }
   @media (prefers-reduced-motion: reduce) {

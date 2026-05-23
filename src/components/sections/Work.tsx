@@ -1,54 +1,11 @@
 import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
 import { Icon } from '@/components/primitives/Icon'
-import { ProjectIcon } from '@/components/primitives/ProjectIcon'
 import { Reveal } from '@/components/motion/Reveal'
-import type { Work, Project } from '@/content/schema'
-
-function ProjectLogo({ p }: { p: Project }) {
-  const inner = (
-    <div className="group flex flex-col items-center text-center px-2 py-4 transition-transform duration-500 group-hover:-translate-y-1">
-      <ProjectIcon
-        name={p.name}
-        domain={p.domain}
-        iconSrc={p.iconSrc}
-        size={96}
-        bare
-        className="grayscale opacity-60 transition-[filter,opacity,transform] duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.05]"
-      />
-      <p className="mt-4 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-[var(--color-ink-deep)] group-hover:text-[var(--color-coral)] transition-colors leading-[1.3] line-clamp-2">
-        {p.name}
-      </p>
-      {p.year && (
-        <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)]">
-          {p.year}
-        </p>
-      )}
-    </div>
-  )
-
-  if (p.url) {
-    return (
-      <a
-        href={p.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-paper)] rounded-2xl"
-        aria-label={`${p.name} — ${p.role}`}
-      >
-        {inner}
-      </a>
-    )
-  }
-  return <div className="block group">{inner}</div>
-}
+import { LogoMarquee } from '@/components/motion/LogoMarquee'
+import type { Work } from '@/content/schema'
 
 export function WorkSection({ data }: { data: Work }) {
-  // Duplicate the list so the marquee can loop seamlessly: translating the
-  // inner row by exactly -50% leaves us on the start of the second copy,
-  // which is identical to the first copy, so the visual wraps cleanly.
-  const loopedItems = [...data.items, ...data.items]
-
   return (
     <section id="work" className="section-flow section-compact section-paper">
       <Container>
@@ -64,29 +21,10 @@ export function WorkSection({ data }: { data: Work }) {
           </p>
         </Reveal>
 
-        {/* Marquee — auto-scrolling infinite logo strip. Fades in/out at the
-            container's left/right edges so logos materialize softly instead
-            of snapping in at a hard cut. */}
-        <div
-          className="logo-marquee mt-8 md:mt-12"
-          role="region"
-          aria-label="Proyectos"
-        >
-          <div
-            className="logo-marquee-track"
-            style={{ '--logo-count': data.items.length } as React.CSSProperties}
-          >
-            {loopedItems.map((p, idx) => (
-              <div
-                key={`${p.number}-${idx}`}
-                className="logo-marquee-item"
-                aria-hidden={idx >= data.items.length || undefined}
-              >
-                <ProjectLogo p={p} />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Auto-scrolling infinite logo strip. Marquee is its own client
+            component because it needs to measure its track width in pixels
+            (see LogoMarquee.tsx for the seamless-loop math). */}
+        <LogoMarquee items={data.items} />
 
         <Reveal delay={0.2} className="mt-6 md:mt-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10 justify-between border-t border-[var(--color-line)] pt-6 md:pt-8">
