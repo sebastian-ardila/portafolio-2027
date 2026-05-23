@@ -31,12 +31,7 @@ export function Hero({ data }: { data: HeroData }) {
               delay={0.3}
               className="w-full max-w-[360px] md:max-w-[480px]"
             >
-              <HeroVideo
-                sources={[
-                  { src: '/videos/saludando.webm', type: 'video/webm' },
-                ]}
-                className="pointer-events-none select-none w-full h-auto block"
-              />
+              <HeroVideo className="pointer-events-none select-none w-full h-auto block" />
             </Reveal>
           </div>
         </div>
