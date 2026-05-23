@@ -29,7 +29,7 @@ export function Hero({ data }: { data: HeroData }) {
             <Reveal
               mode="mount"
               delay={0.3}
-              className="w-full max-w-[360px] md:max-w-[480px]"
+              className="w-full max-w-[240px] md:max-w-[480px]"
             >
               <HeroVideo className="pointer-events-none select-none w-full h-auto block" />
             </Reveal>
