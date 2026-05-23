@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
-import { routing, type Locale } from '@/i18n/routing'
+import { type Locale } from '@/i18n/routing'
 import { useTransition } from 'react'
 import { cn } from '@/lib/cn'
 
@@ -12,44 +12,32 @@ export function LocaleSwitcher() {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
-  const change = (next: Locale) => {
-    if (next === locale) return
+  // The bolita shows the *current* locale; clicking it swaps to the other.
+  const other: Locale = locale === 'en' ? 'es' : 'en'
+  const fullName = other === 'en' ? 'English' : 'Español'
+
+  const swap = () => {
     try {
-      document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
-      localStorage.setItem('NEXT_LOCALE', next)
+      document.cookie = `NEXT_LOCALE=${other}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
+      localStorage.setItem('NEXT_LOCALE', other)
     } catch {
       /* private mode etc. */
     }
     startTransition(() => {
-      router.replace(pathname, { locale: next, scroll: false })
+      router.replace(pathname, { locale: other, scroll: false })
     })
   }
 
   return (
-    <div
-      role="group"
-      aria-label="Idioma / Language"
-      className="locale-switch"
+    <button
+      type="button"
+      onClick={swap}
+      disabled={isPending}
+      aria-label={`Cambiar a ${fullName}`}
+      title={fullName}
+      className={cn('locale-bolita', `locale-bolita-${locale}`)}
     >
-      {routing.locales.map((l) => {
-        const active = l === locale
-        return (
-          <button
-            key={l}
-            type="button"
-            onClick={() => change(l)}
-            disabled={isPending || active}
-            aria-pressed={active}
-            aria-label={l === 'en' ? 'English' : 'Español'}
-            className={cn(
-              'locale-switch-segment',
-              active && 'locale-switch-segment-active'
-            )}
-          >
-            {l.toUpperCase()}
-          </button>
-        )
-      })}
-    </div>
+      {locale.toUpperCase()}
+    </button>
   )
 }

@@ -670,51 +670,51 @@
     color: var(--color-cream);
   }
 
-  /* Segmented locale toggle — a single pill split in halves. The active
-     segment fills with ink; the inactive stays transparent and lights up
-     to a subtle hover on pointer. Replaces the "EN / ES" text switcher. */
-  .locale-switch {
+  /* Locale switcher — a small round chip that shows the *current* locale.
+     Click swaps to the other. The bottom edge is accent-colored per
+     locale (blue for EN, orange for ES) so the user can tell which
+     language is active at a glance without spelling out both. */
+  .locale-bolita {
+    --accent: var(--color-ink-deep);
+    appearance: none;
     display: inline-flex;
-    align-items: stretch;
-    padding: 2px;
-    background: var(--color-cream);
-    border: 1px solid var(--color-ink-deep);
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.35rem;
     border-radius: 999px;
+    border: 1px solid var(--color-ink-deep);
+    border-bottom: 3px solid var(--accent);
+    background: var(--color-cream);
+    color: var(--color-ink-deep);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     line-height: 1;
-    user-select: none;
-  }
-  .locale-switch-segment {
-    appearance: none;
-    background: transparent;
-    border: 0;
-    color: var(--color-ink-deep);
-    padding: 0.35rem 0.65rem;
-    border-radius: 999px;
     cursor: pointer;
     transition:
-      background 200ms ease,
-      color 200ms ease,
-      opacity 200ms ease;
+      transform 220ms ease,
+      background 220ms ease;
   }
-  .locale-switch-segment:hover:not(:disabled):not(.locale-switch-segment-active) {
-    background: color-mix(in srgb, var(--color-ink-deep) 8%, transparent);
+  .locale-bolita-en {
+    --accent: #3b6ea8;
   }
-  .locale-switch-segment-active {
-    background: var(--color-ink-deep);
-    color: var(--color-cream);
-    cursor: default;
+  .locale-bolita-es {
+    --accent: #e0833f;
   }
-  .locale-switch-segment:disabled:not(.locale-switch-segment-active) {
+  .locale-bolita:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+  .locale-bolita:disabled {
     opacity: 0.6;
     cursor: wait;
   }
-  .locale-switch-segment:focus-visible {
+  .locale-bolita:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-coral) 50%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent);
   }
 
   /* Auto-scrolling infinite logo marquee for the Work section. The track
