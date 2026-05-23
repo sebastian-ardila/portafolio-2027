@@ -67,9 +67,7 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <span className="hidden md:inline-flex">
-                <LocaleSwitcher />
-              </span>
+              <LocaleSwitcher />
               <a
                 href={calendarHref}
                 target="_blank"
