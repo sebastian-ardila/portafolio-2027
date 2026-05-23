@@ -33,9 +33,9 @@ export function LocaleSwitcher() {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 font-mono text-[0.72rem] uppercase tracking-[0.12em]">
+    <span className="inline-flex items-center gap-1 font-mono text-[0.7rem] uppercase tracking-[0.1em]">
       {routing.locales.map((l, i) => (
-        <span key={l} className="flex items-center gap-1.5">
+        <span key={l} className="flex items-center gap-1">
           <button
             type="button"
             onClick={() => change(l)}

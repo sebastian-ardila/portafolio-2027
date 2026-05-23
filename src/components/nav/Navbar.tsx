@@ -67,7 +67,7 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
             </nav>
 
             <div className="flex items-center gap-2">
-              <span className="float-chip float-chip-static hidden md:inline-flex !py-2">
+              <span className="float-chip float-chip-static hidden md:inline-flex !py-1.5 !px-3 !gap-1">
                 <LocaleSwitcher />
               </span>
               <a
