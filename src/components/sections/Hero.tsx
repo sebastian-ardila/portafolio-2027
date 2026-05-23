@@ -2,6 +2,7 @@ import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
 import { Icon } from '@/components/primitives/Icon'
 import { Reveal } from '@/components/motion/Reveal'
+import { HeroVideo } from '@/components/sections/HeroVideo'
 import { yearsInPractice } from '@/lib/year'
 import type { Hero as HeroData } from '@/content/schema'
 
@@ -30,14 +31,8 @@ export function Hero({ data }: { data: HeroData }) {
               delay={0.3}
               className="w-full max-w-[360px] md:max-w-[480px]"
             >
-              <video
+              <HeroVideo
                 src="/videos/saludando.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden
                 className="pointer-events-none select-none w-full h-auto block"
               />
             </Reveal>
