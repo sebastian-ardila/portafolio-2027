@@ -3,26 +3,34 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Auto-playing hero video that's stubborn about staying playing.
+ * Auto-playing hero video that's stubborn about staying playing AND about
+ * showing transparently on every browser.
  *
- * iOS Safari is the main offender:
- *   - Pauses videos when the tab loses focus and DOESN'T auto-resume on
- *     return.
- *   - Pauses videos when Low Power Mode is on.
- *   - Pauses when the video scrolls out of view (battery heuristic) and
- *     keeps it paused when it scrolls back in.
- *   - Sometimes shows a "play" poster overlay when paused even though we
- *     never set the controls attribute.
+ * The transparency problem:
+ *   - iOS Safari does NOT decode the alpha channel of VP9-in-WebM. The
+ *     video plays but the green chromakey background renders as solid
+ *     green. Worst, the inability to fully decode the stream causes
+ *     iOS to fall back to a paused "play" poster overlay.
+ *   - Chrome, Firefox, Safari 16+ on macOS all decode VP9 alpha fine.
+ * The fix: ship the same clip as HEVC + alpha inside a .mov for iOS, and
+ * VP9 + alpha inside a .webm for everything else. The browser picks the
+ * first <source> whose type it can play.
  *
- * This component forces play() on every event where iOS is likely to have
- * paused us: mount, intersection-back-in-view, visibility-back-to-visible,
- * and any explicit `pause` event we didn't trigger.
+ * The "stay-playing" problem:
+ *   iOS Safari pauses videos when the tab loses focus, when Low Power
+ *   Mode is on, when the video scrolls out of view (battery heuristic),
+ *   and sometimes for no clear reason — and shows a "play" overlay on
+ *   the paused frame. This component forces play() on every recovery
+ *   hook (mount, intersection back-in-view, visibilitychange back to
+ *   visible, and any spontaneous `pause` event).
  */
 export function HeroVideo({
-  src,
+  sources,
   className,
 }: {
-  src: string
+  // Tuple of <source> entries. ORDER MATTERS: browsers pick the first they
+  // can play, so list the iOS-friendly HEVC+alpha .mov before the .webm.
+  sources: { src: string; type: string }[]
   className?: string
 }) {
   const ref = useRef<HTMLVideoElement>(null)
@@ -73,7 +81,6 @@ export function HeroVideo({
   return (
     <video
       ref={ref}
-      src={src}
       autoPlay
       muted
       loop
@@ -87,6 +94,10 @@ export function HeroVideo({
       controls={false}
       aria-hidden
       className={className}
-    />
+    >
+      {sources.map((s) => (
+        <source key={s.src} src={s.src} type={s.type} />
+      ))}
+    </video>
   )
 }
