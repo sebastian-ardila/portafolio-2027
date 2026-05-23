@@ -47,7 +47,7 @@ export function Hero({ data }: { data: HeroData }) {
           <Reveal
             mode="mount"
             delay={0.55}
-            className="col-span-7 md:col-span-5 md:row-start-2 self-end flex flex-col md:flex-row md:flex-wrap items-stretch md:items-center gap-3 md:justify-end hero-ctas"
+            className="col-span-7 md:col-span-5 md:row-start-2 self-end flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-3 md:justify-end hero-ctas"
           >
             <Button
               href={data.ctaPrimary.href}
@@ -79,9 +79,9 @@ export function Hero({ data }: { data: HeroData }) {
           <Reveal
             mode="mount"
             delay={0.3}
-            className="col-span-5 md:col-span-6 md:row-start-1 self-center flex flex-col items-end md:items-end"
+            className="col-span-5 md:col-span-6 md:row-start-1 self-end md:self-center flex flex-col items-end"
           >
-            <div className="w-full max-w-[140px] md:max-w-[480px]">
+            <div className="w-full max-w-[180px] md:max-w-[480px]">
               <HeroVideo className="pointer-events-none select-none w-full h-auto block" />
             </div>
           </Reveal>
