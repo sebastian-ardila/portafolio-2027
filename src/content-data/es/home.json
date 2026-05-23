@@ -115,7 +115,7 @@
         "stack": ["Next.js", "TypeScript", "Full Stack", "Arquitectura"],
         "url": "https://clinity.ai",
         "domain": "clinity.ai",
-        "year": "2024 — presente",
+        "year": "2026",
         "art": "Clinity.ai",
         "iconSrc": "/images/projects/clinity.webp"
       },
@@ -127,8 +127,9 @@
         "stack": ["React", "TypeScript", "Redux", "Low-Code", "IA"],
         "url": "https://www.runmyprocess.com/",
         "domain": "runmyprocess.com",
-        "year": "2022 — presente",
-        "art": "RMP\nFluyenta"
+        "year": "2024 — 2026",
+        "art": "RMP\nFluyenta",
+        "iconSrc": "/images/projects/runmyprocess.webp"
       },
       {
         "number": "03",
@@ -138,8 +139,9 @@
         "stack": ["React", "TypeScript", "WebSockets", "Node.js"],
         "url": "https://veritran.com",
         "domain": "veritran.com",
-        "year": "2020 — 2022",
-        "art": "VeriTran\nFinancial"
+        "year": "2019 — 2023",
+        "art": "VeriTran\nFinancial",
+        "iconSrc": "/images/projects/veritran.webp"
       },
       {
         "number": "04",
@@ -149,7 +151,7 @@
         "stack": ["Next.js", "TypeScript", "Marca"],
         "url": "https://copairo.com",
         "domain": "copairo.com",
-        "year": "2023",
+        "year": "2026",
         "art": "Copairo",
         "iconSrc": "/images/projects/copairo.webp"
       },
@@ -161,9 +163,9 @@
         "stack": ["Next.js", "React", "SEO"],
         "url": "https://mudanzaspereira.co",
         "domain": "mudanzaspereira.co",
-        "year": "2024",
+        "year": "2026",
         "art": "Mudanzas\nPereira",
-        "iconSrc": "/images/projects/mudanzaspereira2.webp"
+        "iconSrc": "/images/projects/mudanzaspereira.webp"
       },
       {
         "number": "06",
@@ -185,9 +187,10 @@
         "stack": ["Next.js", "React", "TypeScript", "Marca"],
         "url": "https://cafelosgrisales.com",
         "domain": "cafelosgrisales.com",
-        "year": "2025",
+        "year": "2026",
         "art": "Café\nLos Grisales",
-        "repo": "https://github.com/sebastian-ardila/los-grisales"
+        "repo": "https://github.com/sebastian-ardila/los-grisales",
+        "iconSrc": "/images/projects/cafelosgrisales.webp"
       },
       {
         "number": "08",
@@ -195,9 +198,11 @@
         "role": "Ingeniería · Diseño UX",
         "summary": "Sitio de marca de café con cuidado editorial. Tipografía calma, layout responsivo, jerarquía centrada en el contenido.",
         "stack": ["Next.js", "React", "UX", "Responsive"],
+        "url": "https://sebastian-ardila.github.io/cafe-independencia/",
         "domain": "cafeindependencia.co",
-        "year": "2023",
-        "art": "Café\nIndependencia"
+        "year": "2026",
+        "art": "Café\nIndependencia",
+        "iconSrc": "/images/projects/cafeindependencia.webp"
       },
       {
         "number": "09",
@@ -207,18 +212,9 @@
         "stack": ["Next.js", "React", "Contenido"],
         "url": "https://casadeasterionediciones.com",
         "domain": "casadeasterionediciones.com",
-        "year": "2024",
+        "year": "2025",
         "art": "Casa de\nAsterión",
         "iconSrc": "/images/projects/casadeasterion.webp"
-      },
-      {
-        "number": "10",
-        "name": "Pirogramei",
-        "role": "Ingeniería · Accesibilidad",
-        "summary": "Sitio estático para un grupo comunitario de programación. Construido con Astro para cargas instantáneas, desplegado en GitHub Pages, accesibilidad primero.",
-        "stack": ["Astro", "HTML", "CSS", "A11y"],
-        "year": "2023",
-        "art": "Pirogramei"
       },
       {
         "number": "11",
@@ -226,17 +222,11 @@
         "role": "Ingeniería · Comunidad",
         "summary": "Sitio para la comunidad local de Computer Science. Codificado a mano, liviano, enfocado en legibilidad y facilidad de compartir.",
         "stack": ["HTML", "CSS", "JS"],
-        "year": "2022",
-        "art": "CS\nPereira"
-      },
-      {
-        "number": "12",
-        "name": "Compilador PL/0",
-        "role": "Ingeniería · Compiladores",
-        "summary": "Compilador para el lenguaje PL/0 construido en Python. Lexer, parser y generador de código. Un proyecto de fin de semana por amor al oficio.",
-        "stack": ["Python", "Compiladores", "Lexing", "Parsing"],
-        "year": "2021",
-        "art": "PL/0\nCompiler"
+        "url": "https://sebastian-ardila.github.io/cspereira/",
+        "domain": "sebastian-ardila.github.io/cspereira",
+        "year": "2025",
+        "art": "CS\nPereira",
+        "iconSrc": "/images/projects/couchsurfingpereira.webp"
       }
     ],
     "viewAllLabel": "Abrir archivo de proyectos",
