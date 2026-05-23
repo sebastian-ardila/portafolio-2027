@@ -1,0 +1,56 @@
+name: Deploy Portfolio to AWS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # pnpm must be installed before setup-node so the cache hits.
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          # Match the packageManager field in package.json so the workflow
+          # never drifts away from local dev.
+          version: 10.28.1
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (static export → out/)
+        run: pnpm build
+
+      # OIDC login to AWS — no long-lived access keys.
+      # Bucket and CloudFront distribution are shared with portafolio-2026.
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::339712768913:role/GitHubActionsPortfolioDeployRole
+          aws-region: us-east-1
+
+      - name: Upload to S3
+        run: aws s3 sync out s3://portafolio-2026-sebastian --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id EC2G5UTO1CEQ9 \
+            --paths "/*"

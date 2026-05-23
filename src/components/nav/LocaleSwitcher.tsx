@@ -14,8 +14,21 @@ export function LocaleSwitcher() {
 
   const change = (next: Locale) => {
     if (next === locale) return
+    // Persist the choice so the bare-path redirect scripts (see
+    // scripts/write-root-redirect.mjs) and any future visit land on the
+    // same locale without re-running browser-language detection.
+    try {
+      document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`
+      localStorage.setItem('NEXT_LOCALE', next)
+    } catch {
+      /* ignore (private mode etc.) */
+    }
     startTransition(() => {
-      router.replace(pathname, { locale: next })
+      // scroll: false keeps the user exactly where they were. Without it
+      // Next.js auto-scrolls to top on every route change, which makes
+      // switching locale feel like a full navigation rather than a copy
+      // swap.
+      router.replace(pathname, { locale: next, scroll: false })
     })
   }
 

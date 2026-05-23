@@ -55,14 +55,14 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
               className="hidden lg:flex items-center gap-2"
             >
               {links.map((l) => (
-                <a
+                <Link
                   key={l.href}
                   href={l.href}
                   className="float-chip focus:outline-none"
                 >
                   <Icon name={l.icon} size={14} />
                   <span>{l.label}</span>
-                </a>
+                </Link>
               ))}
             </nav>
 
