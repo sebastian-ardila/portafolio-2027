@@ -33,10 +33,6 @@ export function Hero({ data }: { data: HeroData }) {
             >
               <HeroVideo
                 sources={[
-                  // iOS Safari can't decode VP9 alpha in WebM; HEVC+alpha
-                  // in .mov is its native transparent video format. Listing
-                  // the .mov first ensures Safari/iOS take that branch.
-                  { src: '/videos/saludando.mov', type: 'video/quicktime' },
                   { src: '/videos/saludando.webm', type: 'video/webm' },
                 ]}
                 className="pointer-events-none select-none w-full h-auto block"
