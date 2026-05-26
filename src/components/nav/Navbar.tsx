@@ -72,7 +72,7 @@ export function Navbar({ calendarHref }: { calendarHref: string }) {
                 href={calendarHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="float-chip float-chip-green focus:outline-none"
+                className="float-chip float-chip-dark focus:outline-none"
               >
                 <Icon name="calendar" size={14} />
                 <span>{t('bookCall')}</span>

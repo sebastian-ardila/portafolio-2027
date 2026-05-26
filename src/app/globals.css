@@ -21,11 +21,6 @@
   --color-line: #d8cfb8;
   --color-line-strong: #a89a78;
 
-  /* Forest green used by the navbar pills (LocaleSwitcher + Agendar) so
-     they share a thin-border treatment. Matches the Los Grisales palette
-     since the LocaleSwitcher mirrors that project's component. */
-  --color-pill-green: #1f4435;
-
   /* Fonts */
   --font-display: var(--font-bricolage), 'Geist', system-ui, sans-serif;
   --font-sans: var(--font-geist), -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -675,77 +670,51 @@
     color: var(--color-cream);
   }
 
-  /* Locale switcher — a compact pill that lists every supported locale
-     as a flag-on-top + code-below stack. The active locale fills with
-     the brand green; the rest stay transparent. Container border and
-     active fill share --color-pill-green so it matches the Agendar
-     pill alongside in the navbar. */
-  .locale-switch {
-    display: inline-flex;
-    align-items: stretch;
-    padding: 3px;
-    background: transparent;
-    border: 1px solid var(--color-pill-green, #1f4435);
-    border-radius: 14px;
-    gap: 2px;
-    line-height: 1;
-    user-select: none;
-  }
-  .locale-switch-item {
+  /* Locale switcher — a small round chip that shows the *current* locale.
+     Click swaps to the other. The bottom edge is accent-colored per
+     locale (blue for EN, orange for ES) so the user can tell which
+     language is active at a glance without spelling out both. */
+  .locale-bolita {
+    --accent: var(--color-ink-deep);
     appearance: none;
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
-    padding: 0.25rem 0.5rem;
-    min-width: 38px;
-    background: transparent;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-ink-deep);
+    border-bottom: 3px solid var(--accent);
+    background: var(--color-cream);
     color: var(--color-ink-deep);
-    border: 0;
-    border-radius: 10px;
     font-family: var(--font-mono);
-    font-size: 0.58rem;
+    font-size: 0.7rem;
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    line-height: 1;
     cursor: pointer;
     transition:
-      background 200ms ease,
-      color 200ms ease;
+      transform 220ms ease,
+      background 220ms ease;
   }
-  .locale-switch-flag {
-    font-size: 1rem;
-    line-height: 1;
+  .locale-bolita-en {
+    --accent: #3b6ea8;
   }
-  .locale-switch-code {
-    line-height: 1;
-    font-weight: 600;
+  .locale-bolita-es {
+    --accent: #e0833f;
   }
-  .locale-switch-item:hover:not(:disabled):not(.locale-switch-item-active) {
-    background: color-mix(in srgb, var(--color-pill-green, #1f4435) 12%, transparent);
+  .locale-bolita:hover:not(:disabled) {
+    transform: translateY(-1px);
   }
-  .locale-switch-item-active {
-    background: var(--color-pill-green, #1f4435);
-    color: var(--color-cream);
-    cursor: default;
+  .locale-bolita:disabled {
+    opacity: 0.6;
+    cursor: wait;
   }
-  .locale-switch-item:focus-visible {
+  .locale-bolita:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-pill-green, #1f4435) 45%, transparent);
-  }
-
-  /* Variant of the navbar pill used by the LocaleSwitcher's neighbour
-     (currently the Agendar/Calendar CTA): transparent background, thin
-     green border, matches .locale-switch visually. */
-  .float-chip-green {
-    background: transparent;
-    color: var(--color-ink-deep);
-    border-color: var(--color-pill-green, #1f4435);
-  }
-  .float-chip-green:hover {
-    background: var(--color-pill-green, #1f4435);
-    color: var(--color-cream);
-    border-color: var(--color-pill-green, #1f4435);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent);
   }
 
   /* Auto-scrolling infinite logo marquee for the Work section. The track
