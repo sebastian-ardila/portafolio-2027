@@ -194,18 +194,6 @@
       },
       {
         "number": "08",
-        "name": "Café Independencia",
-        "role": "Engineering · UX Design",
-        "summary": "Coffee brand site with editorial care. Quiet typography, responsive layout, content-first hierarchy.",
-        "stack": ["Next.js", "React", "UX", "Responsive"],
-        "url": "https://sebastian-ardila.github.io/cafe-independencia/",
-        "domain": "cafeindependencia.co",
-        "year": "2026",
-        "art": "Café\nIndependencia",
-        "iconSrc": "/images/projects/cafeindependencia.webp"
-      },
-      {
-        "number": "09",
         "name": "Casa de Asterión",
         "role": "Engineering · Editorial UX",
         "summary": "Editorial site for an independent publishing house. Custom content model, content-first information architecture.",
@@ -217,7 +205,7 @@
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
-        "number": "10",
+        "number": "09",
         "name": "CS Pereira",
         "role": "Engineering · Community",
         "summary": "Local CS community site. Hand-coded, lightweight, focused on legibility and shareability. A small project with a clear job.",
