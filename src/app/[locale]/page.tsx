@@ -23,8 +23,8 @@ export default async function HomePage({
   return (
     <>
       <Hero data={content.hero} />
-      <KaizenFramework data={content.kaizen} />
       <WorkSection data={content.work} />
+      <KaizenFramework data={content.kaizen} />
       <Philosophy data={content.philosophy} />
       <ContactCTA data={content.contact} />
     </>
