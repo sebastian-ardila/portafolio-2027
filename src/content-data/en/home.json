@@ -105,13 +105,13 @@
   "work": {
     "eyebrow": "Selected Work",
     "title": "Years later, better than day one.",
-    "description": "The full archive — products I've built or led, from healthcare to enterprise low-code, from finance to brand and open source. Swipe through to walk the timeline.",
+    "description": "The full archive — products I've built or led, from nearshore software to enterprise low-code, from finance to brand and open source. Swipe through to walk the timeline.",
     "items": [
       {
         "number": "01",
         "name": "Clinity AI",
         "role": "Engineering & Strategy",
-        "summary": "Healthcare platform combining clinical workflows and AI assistance. Contributed to the technical foundation and the product direction.",
+        "summary": "Nearshore software studio operating from LATAM for US-based teams. I contribute to the technical foundation of the internal platform and to the direction of the products that ship.",
         "stack": ["Next.js", "TypeScript", "Full Stack", "Architecture"],
         "url": "https://clinity.ai",
         "domain": "clinity.ai",

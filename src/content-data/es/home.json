@@ -105,13 +105,13 @@
   "work": {
     "eyebrow": "Proyectos Seleccionados",
     "title": "Años después, mejor que el primer día.",
-    "description": "El archivo completo — productos que he construido o liderado, de salud a low-code empresarial, de finanzas a marca y open source. Desliza para recorrerlos.",
+    "description": "El archivo completo — productos que he construido o liderado, de software nearshore a low-code empresarial, de finanzas a marca y open source. Desliza para recorrerlos.",
     "items": [
       {
         "number": "01",
         "name": "Clinity AI",
         "role": "Ingeniería & Estrategia",
-        "summary": "Plataforma de salud que combina flujos clínicos con asistencia de IA. Contribuí a la base técnica y a la dirección de producto.",
+        "summary": "Estudio de software nearshore que opera desde LATAM para equipos de US. Contribuyo a la base técnica de la plataforma interna y a la dirección de los productos que llegan a producción.",
         "stack": ["Next.js", "TypeScript", "Full Stack", "Arquitectura"],
         "url": "https://clinity.ai",
         "domain": "clinity.ai",
