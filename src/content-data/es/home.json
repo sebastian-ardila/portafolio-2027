@@ -194,14 +194,14 @@
       },
       {
         "number": "08",
-        "name": "Casa de Asterión",
+        "name": "Casa de Asterión Ediciones",
         "role": "Ingeniería · UX Editorial",
         "summary": "Sitio editorial para una editorial independiente. Modelo de contenido a medida y arquitectura de información centrada en el contenido.",
         "stack": ["Next.js", "React", "Contenido"],
         "url": "https://casadeasterionediciones.com",
         "domain": "casadeasterionediciones.com",
         "year": "2025",
-        "art": "Casa de\nAsterión",
+        "art": "Casa de Asterión\nEdiciones",
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
