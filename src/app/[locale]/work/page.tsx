@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import { getHome } from '@/content/adapter'
 import type { Locale } from '@/i18n/routing'
+import { alternatesFor } from '@/lib/seo'
 import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
 import { Icon } from '@/components/primitives/Icon'
@@ -88,8 +89,8 @@ export default async function WorkPage({
                         iconSrc={p.iconSrc}
                         size={56}
                       />
-                      <div className="flex-1">
-                        <h2 className="font-display text-[2.25rem] md:text-[3rem] font-extrabold -tracking-[0.03em] leading-[0.95] text-[var(--color-ink-deep)]">
+                      <div className="flex-1 min-w-0">
+                        <h2 className="font-display text-[clamp(1.75rem,8vw,2.25rem)] md:text-[3rem] break-words hyphens-auto font-extrabold -tracking-[0.03em] leading-[0.95] text-[var(--color-ink-deep)]">
                           {p.name}
                         </h2>
                         {p.year && (
@@ -162,6 +163,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params
   return {
+    alternates: alternatesFor(locale, 'work'),
     title:
       locale === 'es'
         ? 'Proyectos — Sebastian Ardila'

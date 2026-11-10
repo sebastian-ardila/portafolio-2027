@@ -18,7 +18,7 @@ export function About({ copy }: { copy: AboutCopy }) {
       className="section section-stack section-base"
     >
       <Container>
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-center">
           <Reveal className="col-span-12 md:col-span-5">
             <div className="relative inline-block">
               <div className="aspect-square w-full max-w-[440px] rounded-[28px] overflow-hidden border border-[var(--color-ink-deep)] bg-[var(--color-cream-soft)] relative">

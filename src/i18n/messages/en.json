@@ -5,7 +5,10 @@
     "work": "Work",
     "philosophy": "Philosophy",
     "contact": "Contact",
-    "bookCall": "Book a call"
+    "bookCall": "Book a call",
+    "about": "About",
+    "skip": "Skip to content",
+    "menu": "Navigation"
   },
   "footer": {
     "rights": "All rights reserved",

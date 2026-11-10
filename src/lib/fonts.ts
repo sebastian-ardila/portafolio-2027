@@ -24,12 +24,16 @@ export const geistMono = Geist_Mono({
   display: 'swap',
 })
 
+// Only used for the italic signature in Philosophy (below the fold), so
+// it ships italic-only and is NOT preloaded: it used to add two ~75KB
+// high-priority font downloads to every page's critical path.
 export const fraunces = Fraunces({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-fraunces',
   display: 'swap',
   axes: ['opsz'],
-  style: ['normal', 'italic'],
+  style: ['italic'],
+  preload: false,
 })
 
 export const fontVariables = `${bricolage.variable} ${geist.variable} ${geistMono.variable} ${fraunces.variable}`

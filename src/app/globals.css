@@ -439,6 +439,12 @@
     transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
   }
+  /* Never let a pill be wider than its container. Long labels (e.g.
+     "Visitar sebastian-ardila.github.io/cspereira") used to push the
+     page sideways on phones and tablets; now the label wraps instead. */
+  .btn-pill {
+    max-width: 100%;
+  }
   .btn-pill-content {
     position: relative;
     z-index: 2;
@@ -446,6 +452,18 @@
     align-items: center;
     gap: 0.625rem;
     padding: 1rem 1.65rem;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .btn-pill-content > span:not(.btn-pill-icon) {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: left;
+    line-height: 1.25;
+  }
+  .btn-pill-icon {
+    flex-shrink: 0;
   }
   .btn-pill-icon {
     display: inline-flex;
@@ -790,5 +808,39 @@
   }
   .rotate-pos-1 {
     transform: rotate(1deg);
+  }
+}
+
+/* Visible keyboard focus. Several links carry `focus:outline-none` for
+   mouse users; this unlayered rule wins over Tailwind's layered utilities
+   and only applies to keyboard focus (:focus-visible), so mouse clicks
+   stay clean while Tab navigation is always visible (WCAG 2.4.7). */
+.float-chip:focus-visible,
+footer a:focus-visible,
+footer button:focus-visible,
+main a:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 3px;
+}
+
+/* CSS-only entrance for above-the-fold <Reveal mode="mount">. Mirrors the
+   motion `revealUp` preset (40px rise + fade, ease-out-expo, 0.9s) but
+   runs from first paint, without waiting for hydration. */
+@keyframes reveal-mount-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.reveal-mount {
+  animation: reveal-mount-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-mount {
+    animation: none;
   }
 }

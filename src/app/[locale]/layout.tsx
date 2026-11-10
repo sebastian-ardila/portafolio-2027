@@ -9,6 +9,7 @@ import { Navbar } from '@/components/nav/Navbar'
 import { Footer } from '@/components/footer/Footer'
 import { SvgFilters } from '@/components/illustrations/SvgFilters'
 import { getHome } from '@/content/adapter'
+import { alternatesFor } from '@/lib/seo'
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -34,10 +35,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: {
-      canonical: locale === 'en' ? '/' : `/${locale}`,
-      languages: { en: '/', es: '/es' },
-    },
+    // Home canonical/hreflang; sub-pages override with their own path.
+    alternates: alternatesFor(locale, ''),
     openGraph: {
       title,
       description,

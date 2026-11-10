@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server'
 import { getHome } from '@/content/adapter'
 import type { Locale } from '@/i18n/routing'
+import { alternatesFor } from '@/lib/seo'
 import { Container } from '@/components/primitives/Container'
 import { Icon } from '@/components/primitives/Icon'
 import { Reveal } from '@/components/motion/Reveal'
@@ -49,6 +50,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params
   return {
+    alternates: alternatesFor(locale, 'services'),
     title:
       locale === 'es'
         ? 'Servicios — Sebastian Ardila'

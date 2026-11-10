@@ -24,7 +24,7 @@ export function WorkSection({ data }: { data: Work }) {
         {/* Auto-scrolling infinite logo strip. Marquee is its own client
             component because it needs to measure its track width in pixels
             (see LogoMarquee.tsx for the seamless-loop math). */}
-        <LogoMarquee items={data.items} />
+        <LogoMarquee items={data.items} label={data.eyebrow} />
 
         <Reveal delay={0.2} className="mt-6 md:mt-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10 justify-between border-t border-[var(--color-line)] pt-6 md:pt-8">

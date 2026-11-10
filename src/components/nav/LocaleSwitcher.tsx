@@ -33,7 +33,11 @@ export function LocaleSwitcher() {
       type="button"
       onClick={swap}
       disabled={isPending}
-      aria-label={`Cambiar a ${fullName}`}
+      aria-label={
+        locale === 'es'
+          ? `${locale.toUpperCase()} · Cambiar a ${fullName}`
+          : `${locale.toUpperCase()} · Switch to ${fullName}`
+      }
       title={fullName}
       className={cn('locale-bolita', `locale-bolita-${locale}`)}
     >

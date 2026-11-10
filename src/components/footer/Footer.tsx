@@ -5,10 +5,18 @@ import { Container } from '@/components/primitives/Container'
 import { Icon } from '@/components/primitives/Icon'
 import { Shape } from '@/components/primitives/Shape'
 import { currentYear } from '@/lib/year'
+import { Link } from '@/i18n/navigation'
 
 export function Footer() {
   const t = useTranslations('footer')
+  const tNav = useTranslations('nav')
   const year = currentYear()
+
+  const navLinks = [
+    { href: '/services', label: tNav('services') },
+    { href: '/work', label: tNav('work') },
+    { href: '/about', label: tNav('about') },
+  ]
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -28,7 +36,7 @@ export function Footer() {
 
       <Container>
         <div className="grid grid-cols-12 gap-6 md:gap-8 items-end">
-          <div className="col-span-12 md:col-span-6">
+          <div className="col-span-12 md:col-span-5">
             <p className="font-display text-[2.5rem] md:text-[3.5rem] font-extrabold -tracking-[0.04em] leading-[0.95]">
               Sebastian
               <span className="text-[var(--color-coral)]">.</span>
@@ -39,7 +47,25 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="col-span-12 md:col-span-3 flex flex-col gap-3">
+          {/* Site navigation. The header nav is hidden below lg and there is
+              no hamburger, so this is the only way phone/tablet visitors
+              reach Services, Work and About. */}
+          <nav
+            aria-label={tNav('menu')}
+            className="col-span-6 md:col-span-2 flex flex-col gap-3"
+          >
+            {navLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="font-mono text-[0.78rem] uppercase tracking-[0.15em] text-[var(--color-cream-soft)] hover:text-[var(--color-mustard)] transition-colors w-fit"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="col-span-6 md:col-span-2 flex flex-col gap-3">
             <a
               href="https://github.com/sebastian-ardila"
               target="_blank"
@@ -84,7 +110,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[var(--color-ink-carbon)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <p className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-[var(--color-cream-soft)] opacity-50">
+          <p className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-[var(--color-cream-soft)] opacity-75">
             © {year} · {t('rights')}
           </p>
           <p className="font-mono text-[0.72rem] uppercase tracking-[0.15em] text-[var(--color-mustard)]">

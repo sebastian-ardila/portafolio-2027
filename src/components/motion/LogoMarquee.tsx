@@ -23,7 +23,7 @@ function ProjectLogo({ p }: { p: Project }) {
         {p.name}
       </p>
       {p.year && (
-        <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-[var(--color-ink-muted)]">
+        <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-[var(--color-ink-graphite)]">
           {p.year}
         </p>
       )}
@@ -37,7 +37,6 @@ function ProjectLogo({ p }: { p: Project }) {
         target="_blank"
         rel="noopener noreferrer"
         className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-coral)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-paper)] rounded-2xl"
-        aria-label={`${p.name} — ${p.role}`}
       >
         {inner}
       </a>
@@ -46,7 +45,13 @@ function ProjectLogo({ p }: { p: Project }) {
   return <div className="block group">{inner}</div>
 }
 
-export function LogoMarquee({ items }: { items: Project[] }) {
+export function LogoMarquee({
+  items,
+  label,
+}: {
+  items: Project[]
+  label: string
+}) {
   const trackRef = useRef<HTMLDivElement>(null)
   const loopedItems = [...items, ...items]
 
@@ -90,14 +95,17 @@ export function LogoMarquee({ items }: { items: Project[] }) {
     <div
       className="logo-marquee mt-8 md:mt-12"
       role="region"
-      aria-label="Proyectos"
+      aria-label={label}
     >
       <div ref={trackRef} className="logo-marquee-track">
         {loopedItems.map((p, idx) => (
           <div
             key={`${p.number}-${idx}`}
             className="logo-marquee-item"
+            // The second copy only exists for the seamless loop: hide it
+            // from screen readers AND take its links out of the Tab order.
             aria-hidden={idx >= items.length || undefined}
+            inert={idx >= items.length || undefined}
           >
             <ProjectLogo p={p} />
           </div>

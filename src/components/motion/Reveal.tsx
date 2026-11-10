@@ -3,6 +3,7 @@
 import { motion, type Variants } from 'motion/react'
 import { revealUp } from '@/lib/motion-presets'
 import type { ReactNode } from 'react'
+import { cn } from '@/lib/cn'
 
 type RevealProps = {
   children: ReactNode
@@ -25,17 +26,19 @@ export function Reveal({
 }: RevealProps) {
   const MotionTag = motion[as] as typeof motion.div
 
+  // Above-the-fold entrance. Done in pure CSS (see `.reveal-mount` in
+  // globals.css) instead of motion so the content is painted straight from
+  // the static HTML: with motion it stayed at opacity 0 until React
+  // hydrated, which pushed mobile LCP (the hero <h1>) to ~5.8s.
   if (mode === 'mount') {
+    const Tag = as
     return (
-      <MotionTag
-        className={className}
-        initial="hidden"
-        animate="visible"
-        variants={variants}
-        transition={{ delay }}
+      <Tag
+        className={cn('reveal-mount', className)}
+        style={{ animationDelay: `${delay}s` }}
       >
         {children}
-      </MotionTag>
+      </Tag>
     )
   }
 

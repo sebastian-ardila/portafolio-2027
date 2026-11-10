@@ -5,7 +5,10 @@
     "work": "Proyectos",
     "philosophy": "Filosofía",
     "contact": "Contacto",
-    "bookCall": "Agendar"
+    "bookCall": "Agendar",
+    "about": "Sobre mí",
+    "skip": "Saltar al contenido",
+    "menu": "Navegación"
   },
   "footer": {
     "rights": "Todos los derechos reservados",

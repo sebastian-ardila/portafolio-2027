@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { setRequestLocale } from 'next-intl/server'
 import { getHome } from '@/content/adapter'
 import type { Locale } from '@/i18n/routing'
+import { alternatesFor } from '@/lib/seo'
 import { Container } from '@/components/primitives/Container'
 import { Button } from '@/components/primitives/Button'
 import { Icon } from '@/components/primitives/Icon'
@@ -50,9 +51,9 @@ export default async function AboutPage({
 
       <section className="section-flow section-paper">
         <Container>
-          <div className="grid grid-cols-12 gap-8 md:gap-14 items-start">
-            <Reveal className="col-span-12 md:col-span-5">
-              <div className="relative inline-block">
+          <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-14 items-start">
+            <Reveal className="col-span-12 md:col-span-5 min-w-0">
+              <div className="relative block w-full max-w-[460px]">
                 <div className="aspect-square w-full max-w-[460px] rounded-[28px] overflow-hidden border border-[var(--color-ink-deep)] bg-[var(--color-cream-soft)] relative">
                   <Image
                     src="/images/sebastian-ardila.webp"
@@ -72,7 +73,7 @@ export default async function AboutPage({
               </div>
             </Reveal>
 
-            <div className="col-span-12 md:col-span-7">
+            <div className="col-span-12 md:col-span-7 min-w-0">
               <div className="space-y-6 text-[var(--color-ink-graphite)] text-[1.1rem] md:text-[1.2rem] leading-[1.65] max-w-[62ch]">
                 {about.paragraphs.map((p, i) => (
                   <Reveal key={i} delay={0.1 + i * 0.08}>
@@ -119,6 +120,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params
   return {
+    alternates: alternatesFor(locale, 'about'),
     title:
       locale === 'es'
         ? 'Sobre mí — Sebastian Ardila'

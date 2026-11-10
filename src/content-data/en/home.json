@@ -109,6 +109,18 @@
     "items": [
       {
         "number": "01",
+        "name": "Muginn",
+        "role": "Founder · Architecture & Product",
+        "summary": "Multi-tenant SaaS for AI agents on WhatsApp Business. The agent answers customers, books on Google Calendar and triggers automations across other apps. Meta-verified Tech Provider. I designed the whole architecture: API, dashboard and public site.",
+        "stack": ["NestJS", "Next.js", "Supabase", "AI", "WhatsApp API"],
+        "url": "https://muginn.com",
+        "domain": "muginn.com",
+        "year": "2026",
+        "art": "Muginn",
+        "iconSrc": "/images/projects/muginn.webp"
+      },
+      {
+        "number": "02",
         "name": "Clinity AI",
         "role": "Engineering & Strategy",
         "summary": "Nearshore software studio operating from LATAM for US-based teams. I contribute to the technical foundation of the internal platform and to the direction of the products that ship.",
@@ -120,7 +132,7 @@
         "iconSrc": "/images/projects/clinity.webp"
       },
       {
-        "number": "02",
+        "number": "03",
         "name": "RunMyProcess (Fluyenta)",
         "role": "UX Director · Senior Frontend",
         "summary": "Low-code enterprise platform serving Fortune 500 teams. Led UX roadmap, cross-cultural engineering coordination, and AI integration.",
@@ -132,7 +144,7 @@
         "iconSrc": "/images/projects/runmyprocess.webp"
       },
       {
-        "number": "03",
+        "number": "04",
         "name": "VeriTran",
         "role": "Senior Frontend · Architecture",
         "summary": "Financial platform processing real-time transactions over WebSockets. Drove code-splitting and architectural migration to SOLID-aligned modules.",
@@ -144,7 +156,7 @@
         "iconSrc": "/images/projects/veritran.webp"
       },
       {
-        "number": "04",
+        "number": "05",
         "name": "Copairo",
         "role": "Founder · Full-stack",
         "summary": "Independent product built end-to-end: brand, strategy, engineering. A test bed for opinionated patterns I now reuse in client work.",
@@ -156,7 +168,7 @@
         "iconSrc": "/images/projects/copairo.webp"
       },
       {
-        "number": "05",
+        "number": "06",
         "name": "Mudanzas Pereira",
         "role": "Engineering · SEO",
         "summary": "Local logistics business going from zero to first-page Google. Site engineered for performance and organic discovery from day one.",
@@ -168,7 +180,7 @@
         "iconSrc": "/images/projects/mudanzaspereira.webp"
       },
       {
-        "number": "06",
+        "number": "07",
         "name": "Mudanti",
         "role": "Engineering · Product",
         "summary": "Multi-tenant SaaS for moving companies. Public web for acquisition and a super-admin CMS for operations — from local site to product.",
@@ -180,7 +192,19 @@
         "iconSrc": "/images/projects/mudanti.webp"
       },
       {
-        "number": "07",
+        "number": "08",
+        "name": "Granitos Contreras",
+        "role": "Engineering · SEO · Brand",
+        "summary": "Site for a building-materials supplier in Pereira, Colombia: granite, finishes, tools and electrical supplies. A catalog tuned for local search, smooth motion and one-tap WhatsApp quotes, served from the edge.",
+        "stack": ["Astro", "GSAP", "Cloudflare", "SEO"],
+        "url": "https://granitoscontreras.com",
+        "domain": "granitoscontreras.com",
+        "year": "2026",
+        "art": "Granitos\nContreras",
+        "iconSrc": "/images/projects/granitoscontreras.webp"
+      },
+      {
+        "number": "09",
         "name": "Café Los Grisales",
         "role": "Engineering · Brand",
         "summary": "Site for a local coffee shop in Pereira. Brand identity translated into a fast, content-first web presence with menu, story and contact. Open source.",
@@ -193,7 +217,7 @@
         "iconSrc": "/images/projects/cafelosgrisales.webp"
       },
       {
-        "number": "08",
+        "number": "10",
         "name": "Casa de Asterión Ediciones",
         "role": "Engineering · Editorial UX",
         "summary": "Editorial site for an independent publishing house. Custom content model, content-first information architecture.",
@@ -205,7 +229,7 @@
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
-        "number": "09",
+        "number": "11",
         "name": "CS Pereira",
         "role": "Engineering · Community",
         "summary": "Local CS community site. Hand-coded, lightweight, focused on legibility and shareability. A small project with a clear job.",

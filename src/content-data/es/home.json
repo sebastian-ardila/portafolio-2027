@@ -109,6 +109,18 @@
     "items": [
       {
         "number": "01",
+        "name": "Muginn",
+        "role": "Fundador · Arquitectura & Producto",
+        "summary": "Plataforma SaaS multi-tenant de agentes de IA para WhatsApp Business. El agente atiende clientes, agenda en Google Calendar y dispara automatizaciones en otras apps. Tech Provider verificado por Meta. Diseñé la arquitectura completa: API, panel y sitio público.",
+        "stack": ["NestJS", "Next.js", "Supabase", "IA", "WhatsApp API"],
+        "url": "https://muginn.com",
+        "domain": "muginn.com",
+        "year": "2026",
+        "art": "Muginn",
+        "iconSrc": "/images/projects/muginn.webp"
+      },
+      {
+        "number": "02",
         "name": "Clinity AI",
         "role": "Ingeniería & Estrategia",
         "summary": "Estudio de software nearshore que opera desde LATAM para equipos de US. Contribuyo a la base técnica de la plataforma interna y a la dirección de los productos que llegan a producción.",
@@ -120,7 +132,7 @@
         "iconSrc": "/images/projects/clinity.webp"
       },
       {
-        "number": "02",
+        "number": "03",
         "name": "RunMyProcess (Fluyenta)",
         "role": "Director UX · Senior Frontend",
         "summary": "Plataforma low-code empresarial al servicio de equipos Fortune 500. Lideré roadmap UX, coordinación cross-cultural de ingeniería e integración de IA.",
@@ -132,7 +144,7 @@
         "iconSrc": "/images/projects/runmyprocess.webp"
       },
       {
-        "number": "03",
+        "number": "04",
         "name": "VeriTran",
         "role": "Senior Frontend · Arquitectura",
         "summary": "Plataforma financiera procesando transacciones en tiempo real sobre WebSockets. Impulsé code-splitting y migración arquitectónica hacia módulos SOLID.",
@@ -144,7 +156,7 @@
         "iconSrc": "/images/projects/veritran.webp"
       },
       {
-        "number": "04",
+        "number": "05",
         "name": "Copairo",
         "role": "Fundador · Full-stack",
         "summary": "Producto independiente construido de punta a punta: marca, estrategia, ingeniería. Un campo de pruebas para patrones que ahora reutilizo con clientes.",
@@ -156,7 +168,7 @@
         "iconSrc": "/images/projects/copairo.webp"
       },
       {
-        "number": "05",
+        "number": "06",
         "name": "Mudanzas Pereira",
         "role": "Ingeniería · SEO",
         "summary": "Negocio local de logística pasando de cero a primera página de Google. Sitio ingenierizado para performance y descubrimiento orgánico desde el día uno.",
@@ -168,7 +180,7 @@
         "iconSrc": "/images/projects/mudanzaspereira.webp"
       },
       {
-        "number": "06",
+        "number": "07",
         "name": "Mudanti",
         "role": "Ingeniería · Producto",
         "summary": "SaaS multi-tenant para empresas de mudanzas. Web pública para captación y CMS de super admin para operaciones — del sitio local al producto.",
@@ -180,7 +192,19 @@
         "iconSrc": "/images/projects/mudanti.webp"
       },
       {
-        "number": "07",
+        "number": "08",
+        "name": "Granitos Contreras",
+        "role": "Ingeniería · SEO · Marca",
+        "summary": "Sitio para un distribuidor de materiales de construcción en Pereira: granitos, acabados, herramientas y material eléctrico. Catálogo optimizado para búsqueda local, animaciones fluidas y cotización directa por WhatsApp, servido desde el edge.",
+        "stack": ["Astro", "GSAP", "Cloudflare", "SEO"],
+        "url": "https://granitoscontreras.com",
+        "domain": "granitoscontreras.com",
+        "year": "2026",
+        "art": "Granitos\nContreras",
+        "iconSrc": "/images/projects/granitoscontreras.webp"
+      },
+      {
+        "number": "09",
         "name": "Café Los Grisales",
         "role": "Ingeniería · Marca",
         "summary": "Sitio para una cafetería local en Pereira. Identidad de marca traducida a una presencia web rápida y centrada en el contenido: menú, historia y contacto. Open source.",
@@ -193,7 +217,7 @@
         "iconSrc": "/images/projects/cafelosgrisales.webp"
       },
       {
-        "number": "08",
+        "number": "10",
         "name": "Casa de Asterión Ediciones",
         "role": "Ingeniería · UX Editorial",
         "summary": "Sitio editorial para una editorial independiente. Modelo de contenido a medida y arquitectura de información centrada en el contenido.",
@@ -205,7 +229,7 @@
         "iconSrc": "/images/projects/casadeasterion.webp"
       },
       {
-        "number": "09",
+        "number": "11",
         "name": "CS Pereira",
         "role": "Ingeniería · Comunidad",
         "summary": "Sitio para la comunidad local de Computer Science. Codificado a mano, liviano, enfocado en legibilidad y facilidad de compartir.",

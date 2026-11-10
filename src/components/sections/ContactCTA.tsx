@@ -27,7 +27,7 @@ export function ContactCTA({ data }: { data: Contact }) {
       />
 
       <Container>
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-center">
           <Reveal className="col-span-12 md:col-span-7">
             <span className="eyebrow-chip mb-8 md:mb-10">{data.eyebrow}</span>
             <h2 className="font-display font-extrabold leading-[0.95] -tracking-[0.04em] text-[clamp(3.25rem,7.2vw,7rem)] max-w-[18ch] mt-6">
